@@ -4,10 +4,24 @@
 export async function up(knex) {
   return knex.schema.createTable('companions', (table) => {
     table.increments('id')
-    table.integer('plant_id')
-    table.integer('companion_plant_id')
+
+    table
+      .integer('plant_id')
+      .unsigned()
+      .references('id')
+      .inTable('vegetables')
+      .onDelete('CASCADE')
+
+    table
+      .integer('companion_plant_id')
+      .unsigned()
+      .references('id')
+      .inTable('vegetables')
+      .onDelete('CASCADE')
+
     table.string('compatibility_type')
-    table.string('notes')
+
+    table.text('notes')
   })
 }
 
