@@ -63,6 +63,15 @@ export default function AllPlantsPage() {
       </>
     )
   }
+  const groupedPlants = plants.reduce((acc, plant) => {
+    const category = plant.category
+
+    if (!acc[category]) {
+      acc[category] = []
+    }
+    acc[category].push(plant)
+    return acc
+  }, {} as Record<string, typeof plants>)
 
   return (
     <>
@@ -75,12 +84,21 @@ export default function AllPlantsPage() {
           This month you can plant:
         </ThemedText>
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {plants.map((veg) => (
-            <article
-              key={veg.id}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md"
-            >
+        <div className="flex flex-col gap-16">
+           {Object.entries(groupedPlants).map(([category, plants]) => (
+             <section key={category} className="flex flex-col gap-6">
+              <ThemedH1 className="text-left text-3xl">
+               {category}
+              </ThemedH1>
+          
+
+
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {plants.map((veg) => (
+          <article
+            key={veg.id}
+            className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md"
+          >
               <div className="aspect-[3/2] w-full bg-[url(/public/assets/plant.png)] bg-contain bg-center bg-no-repeat">
                 <FadeImg
                   src={veg.image}

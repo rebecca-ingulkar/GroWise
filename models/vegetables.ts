@@ -18,4 +18,6 @@ export interface Vegetables {
 
   storage: string
   image: string
+
+  category: string
 }

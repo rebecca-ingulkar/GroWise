@@ -8,6 +8,7 @@ import ThemedText from './theme/ThemedText'
 import FadeImg from './theme/FadeImg'
 import { useState } from 'react'
 import PlantCalculatorModal from './PlantCalculatorModal'
+import CompanionPlants from './Companion'
 
 export default function PlantGuide() {
   const { id } = useParams()
@@ -291,13 +292,11 @@ export default function PlantGuide() {
           </div>
         </CardContent>
       </Card>
-{/* /*  Add component for companion plants here (below) */ */}
-<Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
+
+      <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
         <CardContent className="grid grid-cols-[1fr_16px_1fr] gap-4 p-0">
           <div className="flex flex-1 flex-col justify-center space-y-6">
-            <h1 className="mb-2 text-4xl font-bold">{plant.name}</h1>
-            <em className="mb-4 block text-gray-600">{plant.scientificName}</em>
-            <p className="leading-relaxed text-gray-800">{plant.description}</p>
+            <CompanionPlants plantId={plant.id} />
           </div>
 
           <div className="w-full bg-[#f5f1ed]"></div>
@@ -312,7 +311,7 @@ export default function PlantGuide() {
         </CardContent>
       </Card>
       {/* plant Calculator */}
-              
+
       {/* <div className="mt-8 flex justify-center">
         <div>
           <button

@@ -1,4 +1,5 @@
 export interface PlantData {
+  category: string
   id: number
   name: string
   scientificName: string
