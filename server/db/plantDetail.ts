@@ -9,7 +9,7 @@ export async function getPlantDetail(id: number): Promise<PlantData> {
     .join('feeding', 'vegetables.feeding_id', 'feeding.id')
     .join('staking', 'vegetables.staking_id', 'staking.id')
     .join('post_harvest', 'vegetables.id', 'vege_id')
-    .join('categories', 'vegetable.category.id', 'categories.id')
+    .join('categories', 'vegetables.category.id', 'categories.id')
     .where({ 'vegetables.id': id })
     .select(
       'vegetables.id',
@@ -39,7 +39,7 @@ export async function getPlantDetail(id: number): Promise<PlantData> {
       'staking.notes as stakingNotes',
       'post_harvest.preservation as preservation',
       'post_harvest.recipe_ideas as recipeIdeas',
-      'category.name as category',
+      'categories.name as category',
 
       // 'vegetable.spacing_id as spacingId',
       // 'vegetable.requirements_id as requirementsId',
