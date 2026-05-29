@@ -18,21 +18,22 @@ export default function CompanionPlants({ plantId }: Props) {
       </div>
       <div>
         <h3>Good Companions</h3>
-        {good?.map((plant) => {
-          ;<div key={plant.id}>
+
+        {good?.map((plant) => (
+          <div key={plant.id}>
             <p>{plant.name}</p>
             <p>{plant.notes}</p>
           </div>
-        })}
+        ))}
       </div>
       <div>
         <h3>Avoid Planting Near</h3>
-        {avoid?.map((plant) => {
-          ;<div key={plant.id}>
+        {avoid?.map((plant) => (
+          <div key={plant.id}>
             <p>{plant.name}</p>
             <p>{plant.notes}</p>
           </div>
-        })}
+        ))}
       </div>
     </>
   )
