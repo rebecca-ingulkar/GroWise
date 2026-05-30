@@ -6,8 +6,17 @@ interface Props {
 
 export default function CompanionPlants({ plantId }: Props) {
   const { data, isLoading, error } = useCompanions(plantId)
-  if (isLoading) return <p>Loading companions...</p>
-  if (error) return <p>Something went wrong</p>
+  if (isLoading) {
+    console.log('isLoading', isLoading)
+    return <p>Loading companions...</p>
+  }
+  if (error) {
+    console.log('error:', error)
+    return <p>Something went wrong</p>
+  }
+  console.log('plantId:', plantId)
+  console.log('data:', data)
+
   const good = data?.filter((plant) => plant.compatibility_type === 'good')
   const avoid = data?.filter((plant) => plant.compatibility_type === 'avoid')
 

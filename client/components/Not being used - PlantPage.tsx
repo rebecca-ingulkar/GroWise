@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import { Button } from './button'
 import { Card, CardContent } from './card'
-import { PlantData } from './../../models/plant'
+import { PlantData } from '../../models/plant'
 import ThemedH1 from './theme/ThemedHeader'
 import ThemedText from './theme/ThemedText'
 
