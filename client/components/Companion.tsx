@@ -14,6 +14,16 @@ export default function CompanionPlants({ plantId }: Props) {
     console.log('error:', error)
     return <p>Something went wrong</p>
   }
+  if (!data?.length) {
+    return (
+      <>
+        <h2 className="text-2xl font-semibold">Companion Planting</h2>
+        <dl className="leading-relaxed">
+          <p>No companion planting information available yet.</p>
+        </dl>
+      </>
+    )
+  }
   console.log('plantId:', plantId)
   console.log('data:', data)
 
@@ -23,26 +33,34 @@ export default function CompanionPlants({ plantId }: Props) {
   return (
     <>
       <div>
-        <h2>Companion Planting</h2>
+        <h2 className="text-2xl font-semibold">Companion Planting</h2>
       </div>
       <div>
-        <h3>Good Companions</h3>
+        <dl className="leading-relaxed">
+          <strong>
+            <h3>Good Companions</h3>
+          </strong>
 
-        {good?.map((plant) => (
-          <div key={plant.id}>
-            <p>{plant.name}</p>
-            <p>{plant.notes}</p>
-          </div>
-        ))}
+          {good?.map((plant) => (
+            <div key={plant.id}>
+              <p>{plant.name}</p>
+              <p>{plant.notes}</p>
+            </div>
+          ))}
+        </dl>
       </div>
       <div>
-        <h3>Avoid Planting Near</h3>
-        {avoid?.map((plant) => (
-          <div key={plant.id}>
-            <p>{plant.name}</p>
-            <p>{plant.notes}</p>
-          </div>
-        ))}
+        <dl className="leading-relaxed">
+          <strong>
+            <h3>Avoid Planting Near</h3>
+          </strong>
+          {avoid?.map((plant) => (
+            <div key={plant.id}>
+              <p>{plant.name}</p>
+              <p>{plant.notes}</p>
+            </div>
+          ))}
+        </dl>
       </div>
     </>
   )
