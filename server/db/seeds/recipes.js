@@ -43,61 +43,73 @@ export async function seed(knex) {
       method:
         'Steam cut spinach for 2mins. Blanch cooked spinach by quickly removing it from the steamer and putting it directly into a bowl of cold water to stop the cooking process. Leave the spinach to drain. Add Spinach to serving plate or bowl. Combine soy sauce and oyster sauce and pour it over the spinach. In a small pan or pot, heat oil. Once hot, add finely chopped garlic. Cook until garlic begins to brown. Quickly pour the hot oil/garlic over the spinach.  ',
       notes: 'Unbeatable',
-      image: 'steamedSpinach.webp',
+      image: './recipes/steamedSpinach.webp',
     },
     {
       id: 5,
-      title: '',
-      description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      title: 'Kale Chips',
+      description: 'Crispy, melt in your mouth way to consume super food kale!',
+      ingredients: 'Kale, Salt, Olive Oil. Optional: Apple cider vinegar',
+      method:
+        'Wash and dry Kale. Remove hard stem and rip kale into smaller size pieces. Combine Olive oil and salt (add vinegar here if using, see notes below). Using your hands, massage the kale with the olive oil and salt mixture. Place kale onto lined baking tray and cook in a preheated (175 degrees C) oven for 15mins. After 15 mins, carefully flip the chips and bake for 5 more mins. Take chips out of oven and allow to cool. Store in airtight container.',
+      notes:
+        'Add Apple cider vinegar to the Olive Oil and salt mix to upgrade these chips from salted to Salt and Vinegar seasoning.',
+      image: './recipes/kalechips.webp',
     },
     {
       id: 6,
-      title: '',
+      title: 'Beetroot and Carrot Salad',
       description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      ingredients:
+        'Beetroot, Carrot, Olive Oil, Balsamic Vinegar, Salt and Pepper',
+      method:
+        'Grate beetroot and carrot into mixing bowl. Mix well. Combine Oil, vingear, salt and pepper and mix through beetroot and carrots. ',
+      notes:
+        'Optional: Add raisins to salad for extra sweetness. Add seeds for extra crunch. Or add Feta for salty extra. ',
+      image: './recipes/beetrootcarrotsalad.webp',
     },
     {
       id: 7,
-      title: '',
-      description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      title: 'Menemen',
+      description: 'Turkish breakfast classic',
+      ingredients:
+        'Eggs, Tomato, Onion, Capsicum, Cheese, Olive Oil, Butter, Salt and Pepper',
+      method:
+        'Whisk eggs until combined, leave to the side. Dice onion, tomato and Capsicum. Heat pan on medium heat and add olive oil and butter. Once pan is hot, add onions and saute. Turn heat to low and add capsicum. Stir and cover with lid until Capsicum is cooked. Add Tomato, stir to combine. Season as preferred to your taste. Add slither of butter and allow time to melt. Pour egg into the veges, stir vigorously until egg is almost cooked. Turn off the heat, sprinkle cheese on the top and cover with lid to let cheese melt. Serve hot with bread on the side. ',
+      notes: 'Good taste',
+      image: './recipes/menemen.webp',
     },
     {
       id: 8,
-      title: '',
-      description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      title: 'Yogurt Dip with Garlic and Dill',
+      description: 'Refreshing yoghurt dip to add on top of everything',
+      ingredients: 'Yoghurt, Dill (can be dried), garlic, salt',
+      method:
+        'Add yoghurt, diced garlic and dill to a bowl. Mix well and add salt to taste. Chill in the fridge until serving.',
+      notes: 'Goes well with Melitzanosalata',
+      image: './recipes/dilldip.webp',
     },
     {
       id: 9,
-      title: '',
+      title: 'Guacamole',
       description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      ingredients:
+        'Avocado, Onion, Coriander, Salt, Pepper, Lemon Juice, Olive Oil',
+      method:
+        'Mash Avocado. Thinly dice onion. Wash and cut Coriander. Combine all ingredients and season with Salt and Pepper to taste.',
+      notes: 'Optional: Add diced tomato for a summery taste.',
+      image: './recipes/guac.webp',
     },
     {
       id: 10,
-      title: '',
-      description: '',
-      ingredients: '',
-      method: '',
-      notes: '',
-      image: '',
+      title: 'Pastries w Peach, Honey and Camembert',
+      description: 'Just a perfect savoury treat for morning festivities.',
+      ingredients:
+        'Puff pastry, Peaches, Honey, Camembert, Rosemary, Salt and Pepper',
+      method:
+        'Cut puff pastry into squares and push into non-stick/oiled muffin tins. Add sliced peaches on pastry, then add rosemary, sliced camembert, honey, S&P. Use the corners of the pastry squares and bring them together above the filling. Cook at 180 (deg Cel) until pastry is puffed and browning. ',
+      notes: 'Delicious and decedent. ',
+      image: './recipes/peachpastry.webp',
     },
   ])
 }

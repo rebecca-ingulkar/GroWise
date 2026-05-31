@@ -10,6 +10,11 @@ export async function getPlantDetail(id: number): Promise<PlantData> {
     .join('staking', 'vegetables.staking_id', 'staking.id')
     .join('post_harvest', 'vegetables.id', 'vege_id')
     .join('categories', 'vegetables.category_id', 'categories.id')
+    .join(
+      'recipe_vegetables',
+      'vegetables.id',
+      'recipe_vegetables.vegetables_id',
+    )
     .where({ 'vegetables.id': id })
     .select(
       'vegetables.id',

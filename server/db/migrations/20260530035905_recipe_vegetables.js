@@ -5,7 +5,7 @@ export async function up(knex) {
   return knex.schema.createTable('recipe_vegetables', (table) => {
     table.increments('id')
     table.integer('recipe_id')
-    table.integer('vegetables.id')
+    table.integer('vegetable_id')
   })
 }
 

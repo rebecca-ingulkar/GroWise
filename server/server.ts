@@ -9,6 +9,7 @@ import allPlantsRoutes from './routes/allplants.ts'
 import plantCalculator from './routes/plantCalculator.ts'
 import gardenRoutes from './routes/garden.ts'
 import companionRoutes from './routes/companionPlants.ts'
+import recipeRoutes from './routes/recipeDetail.ts'
 
 const server = express()
 
@@ -22,6 +23,7 @@ server.use('/api/v1/plants', allPlantsRoutes)
 server.use('/api/v1/plant-calculator', plantCalculator)
 server.use('/api/v1/garden', gardenRoutes)
 server.use('/api/v1/vegetables', companionRoutes)
+server.use('/api/v1/recipes', recipeRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))

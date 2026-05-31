@@ -2,13 +2,15 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
 import { PlantData } from './../../models/plant'
 import { Card, CardContent } from './card'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
+import { Link } from 'react-router'
 import ThemedH1 from './theme/ThemedHeader'
 import ThemedText from './theme/ThemedText'
 import FadeImg from './theme/FadeImg'
 import { useState } from 'react'
 import PlantCalculatorModal from './PlantCalculatorModal'
 import CompanionPlants from './Companion'
+import { useRecipes } from '../hooks/useRecipe'
 
 export default function PlantGuide() {
   const { id } = useParams()
@@ -33,6 +35,8 @@ export default function PlantGuide() {
       return res.json()
     },
   })
+
+  const { data: recipes = [] } = useRecipes(Number(id))
 
   if (isLoading)
     return <p className="mt-24 text-center">Loading planting guide...</p>
@@ -266,7 +270,33 @@ export default function PlantGuide() {
           </div>
         </CardContent>
       </Card>
+      <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
+        <CardContent className="p-8">
+          <h2 className="mb-6 text-2xl font-semibold">
+            Recipes using {plant.name}
+          </h2>
 
+          {recipes.length === 0 ? (
+            <p>No recipes available yet.</p>
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2">
+              {recipes.map((recipe) => (
+                <Link
+                  key={recipe.id}
+                  to={`/recipes/${recipe.id}`}
+                  className="rounded-lg border bg-white p-4 transition hover:shadow-md"
+                >
+                  <h3 className="text-lg font-semibold">{recipe.title}</h3>
+
+                  <p className="mt-2 text-sm text-gray-600">
+                    {recipe.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
       <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
         <CardContent className="grid grid-cols-[1fr_16px_1fr] gap-4 p-0">
           <div className="flex flex-shrink-0 md:h-auto md:w-full">
@@ -292,7 +322,7 @@ export default function PlantGuide() {
           </div>
         </CardContent>
       </Card>
-
+      {/* Companion Plants Card */}
       <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
         <CardContent className="grid grid-cols-[1fr_16px_1fr] gap-4 p-0">
           <div className="flex flex-1 flex-col justify-center space-y-6">
