@@ -3,7 +3,7 @@ import { Recipe } from '../../models/recipe'
 import { getRecipesByVegetableId } from '../apis/recipes'
 
 export function useRecipes(vegetableId: number) {
-  return useQuery<Recipes[]>({
+  return useQuery<Recipe[]>({
     queryKey: ['recipes', vegetableId],
     queryFn: () => getRecipesByVegetableId(vegetableId),
   })

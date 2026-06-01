@@ -315,57 +315,16 @@ export default function PlantGuide() {
                 <dd>{plant.storage}</dd>
                 <strong>Long term: </strong>
                 <dd>{plant.preservation}</dd>
-                <strong>Recipe ideas: </strong>
-                <dd>{plant.recipeIdeas}</dd>
               </dl>
+              <div className="flex flex-1 flex-col justify-center space-y-6">
+                <CompanionPlants plantId={plant.id} />
+              </div>
+
+              <div className="w-full bg-[#f5f1ed]"></div>
             </section>
           </div>
         </CardContent>
       </Card>
-      {/* Companion Plants Card */}
-      <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
-        <CardContent className="grid grid-cols-[1fr_16px_1fr] gap-4 p-0">
-          <div className="flex flex-1 flex-col justify-center space-y-6">
-            <CompanionPlants plantId={plant.id} />
-          </div>
-
-          <div className="w-full bg-[#f5f1ed]"></div>
-
-          <div className="flex">
-            <FadeImg
-              src={plant.image}
-              alt={plant.name}
-              className="w-full rounded-lg object-cover shadow-md"
-            />
-          </div>
-        </CardContent>
-      </Card>
-      {/* plant Calculator */}
-
-      {/* <div className="mt-8 flex justify-center">
-        <div>
-          <button
-            onClick={() => setIsCalculatorOpen(true)}
-            className="rounded-full bg-[#e3ead4] px-8 py-3 text-sm font-semibold text-[#2f2f2f] shadow-md transition hover:bg-[#c8d3b3]"
-          >
-            Open Plant Calculator
-          </button>
-          {plant && (
-            <PlantCalculatorModal
-              isOpen={isCalculatorOpen}
-              onClose={() => setIsCalculatorOpen(false)}
-              vegetable={{
-                id: plant.id,
-                name: plant.name,
-                yieldPerPlantMin: plant.yieldPerPlantMin,
-                yieldPerPlantMax: plant.yieldPerPlantMax,
-                consumptionAdultKg: plant.consumptionAdultKg,
-                consumptionChildKg: plant.consumptionChildKg,
-              }}
-            />
-          )}
-        </div>
-      </div> */}
     </main>
   )
 }
