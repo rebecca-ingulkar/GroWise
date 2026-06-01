@@ -1,8 +1,9 @@
 import request from 'superagent'
+import { Recipe } from '../../models/recipe'
 
-const rootURL = new URL(`api/v1`, document.baseURI)
-
-export async function getRecipesByVegetableId(id: number) {
-  const res = await request.get(`${rootURL}/vegetables/${id}/recipes`)
+export async function getRecipesByVegetableId(
+  vegetableId: number,
+): Promise<Recipe[]> {
+  const res = await request.get(`api/v1/vegetables/${vegetableId}/recipes`)
   return res.body
 }

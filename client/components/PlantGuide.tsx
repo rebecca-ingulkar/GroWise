@@ -276,7 +276,7 @@ export default function PlantGuide() {
             Recipes using {plant.name}
           </h2>
 
-          {recipes.length === 0 ? (
+          {!recipes || recipes.length === 0 ? (
             <p>No recipes available yet.</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">

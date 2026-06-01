@@ -2,8 +2,8 @@ import db from './connection'
 
 export async function getRecipesByVegetableId(id: number) {
   return db('recipes')
-    .join('recipe_vegetables', 'recipe.id', 'recipe_vegetables.recipe.id')
-    .where('recipe_vegetables.vegetables_id', id)
+    .join('recipe_vegetables', 'recipes.id', 'recipe_vegetables.recipe_id')
+    .where('recipe_vegetables.vegetable_id', id)
     .select(
       'recipes.id',
       'recipes.title',
@@ -21,7 +21,7 @@ export async function getVegetablesByRecipeId(recipeId: number) {
     .join(
       'recipe_vegetables',
       'vegetables.id',
-      'recipe_vegetables.vegetables_id',
+      'recipe_vegetables.vegetable_id',
     )
     .where('recipe_vegetables.recipe_id', recipeId)
     .select('vegetables.id', 'vegetables.name', 'vegetables.image')
