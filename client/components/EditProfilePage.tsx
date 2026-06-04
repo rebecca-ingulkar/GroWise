@@ -19,7 +19,9 @@ export default function EditProfilePage() {
     display_name: '',
     region_id: '',
   })
-
+  const sortedRegions = [...regions].sort((a, b) =>
+    a.name.localeCompare(b.name),
+  )
   // Load existing profile values into form
   useEffect(() => {
     if (profileQuery.data) {
@@ -88,7 +90,7 @@ export default function EditProfilePage() {
             className="w-full rounded-xl bg-[#f5f2ed] p-3"
           >
             <option value="">Select region...</option>
-            {regions.map((r) => (
+            {sortedRegions.map((r) => (
               <option key={r.id} value={r.id}>
                 {r.name}
               </option>
