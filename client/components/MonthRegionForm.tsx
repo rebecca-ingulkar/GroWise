@@ -40,6 +40,9 @@ export default function MonthRegionForm({
   const [btnDisabled, setBtnDisabled] = useState(true)
   const navigate = useNavigate()
 
+  const sortedRegions = [...(regionQuery.data ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name),
+  )
   useEffect(
     () => setBtnDisabled(!(selRegionId && selMonth)),
     [selRegionId, selMonth],
@@ -84,7 +87,7 @@ export default function MonthRegionForm({
             onChange={(e) => handleChange(e, setSelRegionId)}
           >
             <option value="">Select Region</option>
-            {regionQuery.data?.map((r) => (
+            {sortedRegions.map((r) => (
               <option key={r.id} value={r.id}>
                 {r.name}
               </option>
