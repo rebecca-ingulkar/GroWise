@@ -66,7 +66,9 @@ export default function AllPlantsPage() {
   const groupedPlants = plants.reduce(
     (acc, plant) => {
       const category = plant.category
-
+      plants.forEach((plant) => {
+        console.log(plant.name, plant.category)
+      })
       if (!acc[category]) {
         acc[category] = []
       }
