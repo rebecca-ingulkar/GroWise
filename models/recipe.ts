@@ -1,4 +1,5 @@
 export interface Recipe {
+  vegetableId: number
   id: number
   title: string
   description: string

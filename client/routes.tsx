@@ -9,7 +9,7 @@ import PlantGuide from './components/PlantGuide.tsx'
 import MyProfile from './components/MyProfile'
 import EditProfile from './components/EditProfilePage'
 import ManageMyGarden from './pages/ManageMyGarden.tsx'
-// import RecipeDetail from './components/RecipeDetail.tsx'
+import RecipeDetail from './components/RecipeDetail.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -22,6 +22,6 @@ export default createRoutesFromElements(
     <Route path="profile" element={<MyProfile />} />
     <Route path="profile/edit" element={<EditProfile />} />
     <Route path="manage-my-garden" element={<ManageMyGarden />} />
-    {/* <Route path="recipes/:id" element={<RecipeDetail />} /> */}
+    <Route path="recipes/:id" element={<RecipeDetail />} />
   </Route>,
 )

@@ -12,7 +12,7 @@ import FadeImg from './theme/FadeImg'
 import { useState } from 'react'
 import PlantCalculatorModal from './PlantCalculatorModal'
 import CompanionPlants from './Companion'
-import { useRecipes } from '../hooks/useRecipe'
+import { useRecipe } from '../hooks/useRecipe'
 
 export default function PlantGuide() {
   const { id } = useParams()
@@ -38,7 +38,7 @@ export default function PlantGuide() {
     },
   })
 
-  const { data: recipes = [] } = useRecipes(Number(id))
+  const { data: recipes = [] } = useRecipe(Number(id))
 
   if (isLoading)
     return <p className="mt-24 text-center">Loading planting guide...</p>

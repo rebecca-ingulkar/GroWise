@@ -1,5 +1,6 @@
 import db from './connection'
 
+// shows the recipe as a clickable link on PlantGuide component
 export async function getRecipesByVegetableId(id: number) {
   return db('recipes')
     .join('recipe_vegetables', 'recipes.id', 'recipe_vegetables.recipe_id')
@@ -9,11 +10,16 @@ export async function getRecipesByVegetableId(id: number) {
       'recipes.title',
       'recipes.description',
       'recipes.image',
+      'recipes.ingredients',
+      'recipes.method',
     )
 }
 
 export async function getRecipeById(id: number) {
-  return db('recipes').where('id', id).first()
+  return db('recipes')
+    .where('id', id)
+    .select('id', 'title', 'description', 'image', 'ingredients', 'method')
+    .first()
 }
 
 export async function getVegetablesByRecipeId(recipeId: number) {

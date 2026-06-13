@@ -2,6 +2,56 @@
 // with ability to add recipe to cookbook (favorites)
 
 import { useParams } from 'react-router'
-import { useRecipe } from '../hooks/useRecipe'
 import ThemedH1 from './theme/ThemedHeader'
 import ThemedText from './theme/ThemedText'
+import { Recipe } from './../../models/recipe'
+// import { PlantData } from './../../models/plant'
+import { Link } from 'react-router'
+import { Card, CardContent } from './card'
+import { useRecipe } from '../hooks/useRecipe'
+import Button from './theme/Button'
+
+export default function RecipeDetail() {
+  const { id } = useParams()
+  const vegetableId = Number(id)
+  const { data: recipes, isPending, error } = useRecipe(Number(id))
+  const recipe = recipes?.[0]
+
+  if (isPending) {
+    return <p>Loading recipe...</p>
+  }
+  if (error) {
+    return <p>Something went wrong: {error.message}</p>
+  }
+  if (!recipe) {
+    return <p>Recipe not found</p>
+  }
+  console.log(recipe)
+
+  return (
+    <Card className="p-6">
+      <CardContent>
+        <ThemedH1>{recipe.title}</ThemedH1>
+        <ThemedText>{recipe.description}</ThemedText>
+        <ThemedH1>Ingredients</ThemedH1>
+        <ThemedText>{recipe.ingredients}</ThemedText>
+        <ThemedH1>Method</ThemedH1>
+        <ThemedText>{recipe.method}</ThemedText>
+        <Button
+          className="gap-4
+      rounded-[40px]
+      bg-[#e8e6e1]
+      px-6
+      py-3
+      text-center
+      text-[clamp(14px,3vw,20px)]
+      font-semibold
+      text-[#2f2f2f]
+      transition hover:bg-[#dcd8ce]"
+        >
+          <Link to={`/plant/${vegetableId}/guide`}>Back to vegetable</Link>
+        </Button>
+      </CardContent>
+    </Card>
+  )
+}
