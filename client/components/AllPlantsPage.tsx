@@ -1,3 +1,6 @@
+// Search results component
+// Shows plants available to grow based on region and month selection
+
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import ThemedH1 from '../components/theme/ThemedHeader'

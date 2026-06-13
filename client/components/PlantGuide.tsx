@@ -1,3 +1,5 @@
+// Planting information component for the selected plant
+
 import { useQuery } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
 import { PlantData } from './../../models/plant'
