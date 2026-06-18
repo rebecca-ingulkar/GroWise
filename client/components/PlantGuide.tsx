@@ -71,6 +71,7 @@ export default function PlantGuide() {
         className="mb-8 flex gap-4
       "
       >
+        {/* Button returns user to Plant Page (not current being used) */}
         <button
           onClick={() => navigate(-1)}
           className="gap-4
