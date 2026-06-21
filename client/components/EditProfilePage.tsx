@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { useUserProfile, useUpdateUserProfile } from '../hooks/useUserProfile'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { useAuth0 } from '@auth0/auth0-react'
 
 import ThemedH1 from '../components/theme/ThemedHeader'
 import ThemedText from '../components/theme/ThemedText'
@@ -9,7 +9,7 @@ import Spacer from '../components/theme/Spacer'
 
 export default function EditProfilePage() {
   const navigate = useNavigate()
-  const { user: authUser } = useAuth0()
+  // const { user: authUser } = useAuth0()
 
   const profileQuery = useUserProfile()
   const updateProfile = useUpdateUserProfile()
