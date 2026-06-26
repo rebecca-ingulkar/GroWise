@@ -1,3 +1,17 @@
+about the project 
+
+about us 
+
+about me 
+
+version update 
+
+recent updates:
+- region list shows in alphabetical order
+
+working on:
+- having ability to save info across devices
+
 # Boilerplate: Fullstack with Sass
 
 ## Setup
