@@ -13,6 +13,7 @@ import { useState } from 'react'
 import PlantCalculatorModal from './PlantCalculatorModal'
 import CompanionPlants from './Companion'
 import { useRecipe } from '../hooks/useRecipe'
+import { useAddToGarden } from '../hooks/useUserGarden'
 
 export default function PlantGuide() {
   const { id } = useParams()
@@ -24,6 +25,7 @@ export default function PlantGuide() {
   const regionName = state?.regionName || 'your region'
   const month = state?.month || 'this month'
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
+  const addToGarden = useAddToGarden()
 
   const {
     data: plant,
@@ -37,25 +39,36 @@ export default function PlantGuide() {
       return res.json()
     },
   })
-
   const { data: recipes = [] } = useRecipe(Number(id))
+
+  async function handleAddToGarden() {
+    console.log('HANDLER FIRED')
+    if (!plant) return
+    try {
+      const result = await addToGarden.mutateAsync(plant.id)
+      console.log('Added successfully:', result)
+      navigate('/my-garden')
+    } catch (err) {
+      console.log('Add failed:', err)
+    }
+  }
 
   if (isLoading)
     return <p className="mt-24 text-center">Loading planting guide...</p>
   if (isError || !plant)
     return <p className="mt-24 text-center">Guide not found.</p>
 
-  const handleAddToGarden = () => {
-    const existing = JSON.parse(localStorage.getItem('myGarden') || '[]')
-    const alreadyAdded = existing.some((p: PlantData) => p.id === plant.id)
+  // const handleAddToGarden = () => {
+  //   const existing = JSON.parse(localStorage.getItem('myGarden') || '[]')
+  //   const alreadyAdded = existing.some((p: PlantData) => p.id === plant.id)
 
-    if (!alreadyAdded) {
-      existing.push(plant)
-      localStorage.setItem('myGarden', JSON.stringify(existing))
-    }
+  //   if (!alreadyAdded) {
+  //     existing.push(plant)
+  //     localStorage.setItem('myGarden', JSON.stringify(existing))
+  //   }
 
-    navigate('/my-garden')
-  }
+  //   navigate('/my-garden')
+  // }
 
   return (
     <main>
@@ -90,6 +103,7 @@ export default function PlantGuide() {
 
         <button
           onClick={handleAddToGarden}
+          disabled={addToGarden.isPending}
           className="
       rounded-[40px]
       bg-[#e8e6e1]

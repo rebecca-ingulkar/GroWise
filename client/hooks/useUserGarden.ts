@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuthFetch } from '../components/lib/authFetch'
+import { addPlantToGarden } from '../apis/userGarden'
 
 // Types for plants in the user's garden
 export interface GardenPlant {
@@ -8,7 +9,22 @@ export interface GardenPlant {
   description: string
   image: string
 }
+//
+// ADD PLANT TO GARDEN
+//
 
+export function useAddToGarden() {
+  const authFetch = useAuthFetch()
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (plantId: number) => addPlantToGarden(authFetch, plantId),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['userGarden'] })
+    },
+  })
+}
 //
 // GET USER GARDEN
 //

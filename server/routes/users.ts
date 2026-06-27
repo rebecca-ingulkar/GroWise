@@ -1,6 +1,7 @@
 import express from 'express'
 import db from '../db/connection.js'
 import checkJwt, { JwtRequest } from '../auth0.js'
+import { UserProfileUpdate } from '../../models/user.js'
 
 const router = express.Router()
 
@@ -49,22 +50,26 @@ router.get('/me', checkJwt, async (req: JwtRequest, res) => {
 })
 
 // PATCH /users/me — update user profile
-router.patch('/me', checkJwt, async (req: JwtRequest, res) => {
-  const auth0Id = req.auth?.sub
-  const { display_name, region_id } = req.body
+router.patch(
+  '/me',
+  checkJwt,
+  async (req: JwtRequest<UserProfileUpdate>, res) => {
+    const auth0Id = req.auth?.sub
+    const { display_name, region_id } = req.body
 
-  if (!auth0Id) {
-    return res.status(401).json({ error: 'Unauthorized' })
-  }
+    if (!auth0Id) {
+      return res.status(401).json({ error: 'Unauthorized' })
+    }
 
-  await db('users').where({ auth0_id: auth0Id }).update({
-    display_name,
-    region_id,
-  })
+    await db('users').where({ auth0_id: auth0Id }).update({
+      display_name,
+      region_id,
+    })
 
-  const updated = await db('users').where({ auth0_id: auth0Id }).first()
+    const updated = await db('users').where({ auth0_id: auth0Id }).first()
 
-  return res.json(updated)
-})
+    return res.json(updated)
+  },
+)
 
 export default router
