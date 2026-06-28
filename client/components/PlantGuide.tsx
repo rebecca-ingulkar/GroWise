@@ -42,7 +42,7 @@ export default function PlantGuide() {
   const { data: recipes = [] } = useRecipe(Number(id))
 
   async function handleAddToGarden() {
-    console.log('HANDLER FIRED')
+    console.log('Click add button')
     if (!plant) return
     try {
       const result = await addToGarden.mutateAsync(plant.id)

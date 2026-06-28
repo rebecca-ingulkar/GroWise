@@ -17,7 +17,7 @@ export async function addPlantToGarden(
       plant_id: plantId,
     }),
   })
-
+  console.log('🔥 API CALL plantId:', plantId, new Date().toISOString())
   if (!res.ok) {
     throw new Error('Failed to add plant')
   }

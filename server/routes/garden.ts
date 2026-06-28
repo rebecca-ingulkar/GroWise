@@ -24,6 +24,8 @@ router.get('/', checkJwt, async (req: JwtRequest, res) => {
     .where('user_garden.user_id', user.id)
 
   res.json(garden)
+  console.log('GARDEN GET USER:', user)
+  console.log('GARDEN RESULTS:', garden)
 })
 
 // -----------------------------------------------------

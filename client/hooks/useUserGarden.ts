@@ -12,7 +12,14 @@ export interface GardenPlant {
 //
 // ADD PLANT TO GARDEN
 //
+// const queryClient = useQueryClient()
 
+// return useMutation({
+//   mutationFn: addPlantToGarden,
+//   onSuccess: () => {
+//     queryClient.invalidateQueries({ queryKey: ['garden'] })
+//   },
+// })
 export function useAddToGarden() {
   const authFetch = useAuthFetch()
   const queryClient = useQueryClient()
@@ -21,7 +28,7 @@ export function useAddToGarden() {
     mutationFn: (plantId: number) => addPlantToGarden(authFetch, plantId),
 
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['userGarden'] })
+      queryClient.invalidateQueries({ queryKey: ['garden'] })
     },
   })
 }
@@ -32,7 +39,7 @@ export function useUserGarden() {
   const authFetch = useAuthFetch()
 
   return useQuery<GardenPlant[]>({
-    queryKey: ['user-garden'],
+    queryKey: ['garden'],
     queryFn: async () => {
       const res = await authFetch('/api/v1/garden')
       if (!res.ok) throw new Error('Failed to load garden')
@@ -58,7 +65,7 @@ export function useRemoveFromGarden() {
       return true
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user-garden'] })
+      queryClient.invalidateQueries({ queryKey: ['garden'] })
     },
   })
 }
