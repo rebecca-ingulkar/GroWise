@@ -3,11 +3,11 @@ import { useAuth0 } from '@auth0/auth0-react'
 import {
   useUserGarden,
   useRemoveFromGarden,
-  GardenPlant,
+  // GardenPlant,
 } from '../hooks/useUserGarden'
 
-import Spacer from '../components/theme/Spacer'
-import { Link } from 'react-router-dom'
+// import Spacer from '../components/theme/Spacer'
+// import { Link } from 'react-router-dom'
 
 import ThemedH1 from '../components/theme/ThemedHeader'
 import ThemedText from '../components/theme/ThemedText'
@@ -49,7 +49,7 @@ export default function ManageMyGarden() {
         <ThemedText>No plants in your garden yet.</ThemedText>
       ) : (
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {plants.map((plant: any) => (
+          {plants.map((plant: unknown) => (
             <article
               key={plant.id}
               className="flex flex-col overflow-hidden rounded-2xl bg-[#f5f2ed] shadow-md"

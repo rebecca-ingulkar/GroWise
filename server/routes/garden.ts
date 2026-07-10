@@ -24,33 +24,43 @@ router.get('/', checkJwt, async (req: JwtRequest, res) => {
     .where('user_garden.user_id', user.id)
 
   res.json(garden)
+  console.log('GARDEN GET USER:', user)
+  console.log('GARDEN RESULTS:', garden)
 })
 
 // -----------------------------------------------------
 // ADD a plant to user's garden
 // -----------------------------------------------------
 router.post('/', checkJwt, async (req: JwtRequest, res) => {
-  const auth0Id = req.auth?.sub
-  const { plant_id } = req.body
+  try {
+    const auth0Id = req.auth?.sub
+    const { plant_id } = req.body
 
-  if (!plant_id) return res.status(400).json({ error: 'plant_id is required' })
+    console.log('AUTH0:', auth0Id)
+    console.log('BODY:', req.body)
 
-  const user = await db('users').where({ auth0_id: auth0Id }).first()
-  if (!user) return res.status(404).json({ error: 'User not found' })
+    if (!plant_id)
+      return res.status(400).json({ error: 'plant_id is required' })
 
-  const existing = await db('user_garden')
-    .where({ user_id: user.id, plant_id: plant_id })
-    .first()
-  if (existing) {
-    return res.status(400).json({ error: 'Plant already in your garden' })
+    const user = await db('users').where({ auth0_id: auth0Id }).first()
+    if (!user) return res.status(404).json({ error: 'User not found' })
+
+    const existing = await db('user_garden')
+      .where({ user_id: user.id, plant_id })
+      .first()
+    if (existing) {
+      return res.status(400).json({ error: 'Plant already in your garden' })
+    }
+    await db('user_garden').insert({
+      user_id: user.id,
+      plant_id: plant_id,
+    })
+
+    res.json({ message: 'Plant added to your garden!' })
+  } catch (err) {
+    console.error('GARDEN POST ERROR:', err)
+    res.status(500).json({ error: 'Server error', details: err.message })
   }
-
-  await db('user_garden').insert({
-    user_id: user.id,
-    plant_id: plant_id,
-  })
-
-  res.json({ message: 'Plant added to your garden!' })
 })
 
 // -----------------------------------------------------

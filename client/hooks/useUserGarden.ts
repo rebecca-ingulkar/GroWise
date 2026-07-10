@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useAuthFetch } from '../components/lib/authFetch'
+import { addPlantToGarden } from '../apis/userGarden'
 
 // Types for plants in the user's garden
 export interface GardenPlant {
@@ -8,7 +9,29 @@ export interface GardenPlant {
   description: string
   image: string
 }
+//
+// ADD PLANT TO GARDEN
+//
+// const queryClient = useQueryClient()
 
+// return useMutation({
+//   mutationFn: addPlantToGarden,
+//   onSuccess: () => {
+//     queryClient.invalidateQueries({ queryKey: ['garden'] })
+//   },
+// })
+export function useAddToGarden() {
+  const authFetch = useAuthFetch()
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (plantId: number) => addPlantToGarden(authFetch, plantId),
+
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['garden'] })
+    },
+  })
+}
 //
 // GET USER GARDEN
 //
@@ -16,7 +39,7 @@ export function useUserGarden() {
   const authFetch = useAuthFetch()
 
   return useQuery<GardenPlant[]>({
-    queryKey: ['user-garden'],
+    queryKey: ['garden'],
     queryFn: async () => {
       const res = await authFetch('/api/v1/garden')
       if (!res.ok) throw new Error('Failed to load garden')
@@ -42,7 +65,7 @@ export function useRemoveFromGarden() {
       return true
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['user-garden'] })
+      queryClient.invalidateQueries({ queryKey: ['garden'] })
     },
   })
 }
