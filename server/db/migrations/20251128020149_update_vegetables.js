@@ -4,8 +4,8 @@
  */
 export async function up(knex) {
   return knex.schema.table('vegetables', (table) => {
-    table.decimal('consumption_adult_kg')
-    table.decimal('consumption_child_kg')
+    table.float('consumption_adult_kg')
+    table.float('consumption_child_kg')
   })
 }
 
