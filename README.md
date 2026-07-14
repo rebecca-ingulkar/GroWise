@@ -2,6 +2,8 @@
 ### Current BETA Status
 Thank you for taking an interest in my platform. I am in the early stages of developing and welcome any feedback or information about elements that don't work as expected. I appreciate your support.
 
+[Give feedback here.](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__pAXlp9UOEtQOEw4OEdPVzVWVDhaWVE3RUo4UVIwTy4u)
+
 ---
 ## About 
 
