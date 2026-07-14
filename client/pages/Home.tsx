@@ -22,11 +22,11 @@ export default function Home() {
           setSelRegionId={setSelRegionId}
         />
       </div>
-      <div className=" pointer-events-none z-0 ">
+      <div className=" pointer-events-none z-0 hidden lg:block">
         <img
           src="/assets/nz-02.png"
           alt="NZ Map"
-          className="h-auto max-h-[80vh] w-auto object-contain opacity-100 lg:max-h-[90vh]"
+          className="h-auto max-h-[90vh] w-auto object-contain opacity-100"
         />
       </div>
     </div>
