@@ -1,15 +1,13 @@
 export async function seed(knex) {
-  // Deletes ALL existing entries
   await knex('companions').del()
 
-  // Inserts seed entries
   await knex('companions').insert([
-    // Tomatoes
+    // Tomatoes (17)
     {
       plant_id: 17,
       companion_plant_id: 23,
       compatibility_type: 'good',
-      notes: 'Basil may improve flavour and repel pests.',
+      notes: 'Basil may improve flavour and help repel pests.',
     },
     {
       plant_id: 17,
@@ -21,255 +19,238 @@ export async function seed(knex) {
       plant_id: 17,
       companion_plant_id: 1,
       compatibility_type: 'avoid',
-      notes: 'Potatoes and tomatoes can spread blight.',
+      notes: 'Potatoes and tomatoes can share blight diseases.',
+    },
+    {
+      plant_id: 17,
+      companion_plant_id: 68,
+      compatibility_type: 'good',
+      notes: 'Nasturtium can attract pollinators and act as a trap crop.',
     },
 
-    // Potatoes
+    // Potatoes (1)
     {
       plant_id: 1,
       companion_plant_id: 12,
       compatibility_type: 'good',
-      notes: 'Beans help improve nitrogen in the soil.',
+      notes: 'Beans improve soil nitrogen availability.',
+    },
+    {
+      plant_id: 1,
+      companion_plant_id: 33,
+      compatibility_type: 'good',
+      notes: 'Garlic may help deter pests.',
     },
     {
       plant_id: 1,
       companion_plant_id: 17,
       compatibility_type: 'avoid',
-      notes: 'Tomatoes share diseases with potatoes.',
+      notes: 'Tomatoes and potatoes can spread blight.',
     },
 
-    // Carrots
+    // Carrots (13)
     {
       plant_id: 13,
       companion_plant_id: 2,
       compatibility_type: 'good',
-      notes: 'Onions may repel carrot fly.',
+      notes: 'Onions may deter carrot fly.',
     },
     {
       plant_id: 13,
       companion_plant_id: 25,
       compatibility_type: 'good',
-      notes: 'Chives help deter pests.',
+      notes: 'Chives can help repel pests.',
     },
     {
       plant_id: 13,
       companion_plant_id: 7,
       compatibility_type: 'good',
-      notes: 'Lettuce makes good use of nearby space.',
+      notes: 'Lettuce uses space efficiently around carrots.',
     },
 
-    // Onions
-    {
-      plant_id: 2,
-      companion_plant_id: 13,
-      compatibility_type: 'good',
-      notes: 'Onions help deter carrot fly.',
-    },
-    {
-      plant_id: 2,
-      companion_plant_id: 12,
-      compatibility_type: 'avoid',
-      notes: 'Beans dislike onions nearby.',
-    },
-    // Lettuce
-    {
-      plant_id: 7,
-      companion_plant_id: 13,
-      compatibility_type: 'good',
-      notes: 'Carrots and lettuce grow well together.',
-    },
-    {
-      plant_id: 7,
-      companion_plant_id: 23,
-      compatibility_type: 'good',
-      notes: 'Basil may help repel aphids.',
-    },
-
-    // Basil
-    {
-      plant_id: 23,
-      companion_plant_id: 17,
-      compatibility_type: 'good',
-      notes: 'Tomatoes and basil are classic companion plants.',
-    },
-    {
-      plant_id: 23,
-      companion_plant_id: 18,
-      compatibility_type: 'good',
-      notes: 'Basil may improve pepper growth.',
-    },
-
-    // Beans
-    {
-      plant_id: 12,
-      companion_plant_id: 1,
-      compatibility_type: 'good',
-      notes: 'Beans add nitrogen beneficial to potatoes.',
-    },
-    {
-      plant_id: 12,
-      companion_plant_id: 19,
-      compatibility_type: 'good',
-      notes: 'Cucumbers and beans grow well together.',
-    },
-    {
-      plant_id: 12,
-      companion_plant_id: 2,
-      compatibility_type: 'avoid',
-      notes: 'Onions may stunt bean growth.',
-    },
-
-    // Cucumbers
-    {
-      plant_id: 19,
-      companion_plant_id: 12,
-      compatibility_type: 'good',
-      notes: 'Beans improve nitrogen availability.',
-    },
-    {
-      plant_id: 19,
-      companion_plant_id: 23,
-    },
-    // Broccoli
+    // Brassicas
     {
       plant_id: 4,
       companion_plant_id: 2,
       compatibility_type: 'good',
-      notes: 'Onions may deter cabbage pests.',
+      notes: 'Onions can help deter brassica pests.',
     },
     {
       plant_id: 4,
-      companion_plant_id: 25,
-      compatibility_type: 'good',
-      notes: 'Chives help deter aphids.',
-    },
-    {
-      plant_id: 4,
-      companion_plant_id: 17,
-      compatibility_type: 'avoid',
-      notes: 'Tomatoes compete heavily for nutrients.',
-    },
-
-    // Cabbage
-    {
-      plant_id: 6,
-      companion_plant_id: 25,
-      compatibility_type: 'good',
-      notes: 'Chives help repel pests.',
-    },
-    {
-      plant_id: 6,
       companion_plant_id: 26,
       compatibility_type: 'good',
       notes: 'Coriander attracts beneficial insects.',
     },
-
-    // Kale
     {
-      plant_id: 10,
+      plant_id: 6,
       companion_plant_id: 25,
       compatibility_type: 'good',
-      notes: 'Chives may deter aphids.',
+      notes: 'Chives help deter pests.',
     },
     {
       plant_id: 10,
-      companion_plant_id: 26,
+      companion_plant_id: 27,
       compatibility_type: 'good',
-      notes: 'Coriander attracts pollinators.',
+      notes: 'Mint may deter cabbage moths.',
+    },
+    {
+      plant_id: 61,
+      companion_plant_id: 68,
+      compatibility_type: 'good',
+      notes: 'Nasturtium can attract beneficial insects.',
     },
 
-    // Peas
+    // Beans & Peas
+    {
+      plant_id: 12,
+      companion_plant_id: 19,
+      compatibility_type: 'good',
+      notes: 'Beans and cucumbers grow well together.',
+    },
+    {
+      plant_id: 12,
+      companion_plant_id: 2,
+      compatibility_type: 'avoid',
+      notes: 'Onions may inhibit bean growth.',
+    },
     {
       plant_id: 11,
       companion_plant_id: 13,
       compatibility_type: 'good',
       notes: 'Carrots and peas grow well together.',
     },
+
+    // Cucumbers (19)
     {
-      plant_id: 11,
-      companion_plant_id: 7,
+      plant_id: 19,
+      companion_plant_id: 12,
       compatibility_type: 'good',
-      notes: 'Lettuce benefits from pea shade.',
+      notes: 'Beans provide nitrogen for cucumber growth.',
+    },
+    {
+      plant_id: 19,
+      companion_plant_id: 23,
+      compatibility_type: 'good',
+      notes: 'Basil attracts beneficial insects.',
+    },
+    {
+      plant_id: 19,
+      companion_plant_id: 68,
+      compatibility_type: 'good',
+      notes: 'Nasturtium can protect cucumbers from pests.',
     },
 
-    // Garlic
-    {
-      plant_id: 33,
-      companion_plant_id: 34,
-      compatibility_type: 'good',
-      notes: 'Garlic may deter citrus pests.',
-    },
+    // Garlic (33)
     {
       plant_id: 33,
       companion_plant_id: 30,
       compatibility_type: 'good',
-      notes: 'Garlic may help reduce fungal diseases in strawberries.',
+      notes: 'Garlic may help reduce fungal issues around strawberries.',
+    },
+    {
+      plant_id: 33,
+      companion_plant_id: 34,
+      compatibility_type: 'good',
+      notes: 'Garlic can help deter citrus pests.',
     },
 
-    // Strawberries
+    // Strawberries (30)
     {
       plant_id: 30,
       companion_plant_id: 33,
       compatibility_type: 'good',
-      notes: 'Garlic may help deter fungal diseases.',
+      notes: 'Garlic helps deter pests and fungal problems.',
     },
     {
       plant_id: 30,
       companion_plant_id: 23,
       compatibility_type: 'good',
-      notes: 'Basil may improve pollinator activity.',
+      notes: 'Basil attracts pollinators.',
+    },
+    // Eggplant (57)
+    {
+      plant_id: 57,
+      companion_plant_id: 23,
+      compatibility_type: 'good',
+      notes: 'Basil may improve growth and attract pollinators.',
+    },
+    {
+      plant_id: 57,
+      companion_plant_id: 68,
+      compatibility_type: 'good',
+      notes: 'Nasturtium can act as a trap crop for pests.',
     },
 
-    // Apples
+    // Sweetcorn (62)
     {
-      plant_id: 21,
-      companion_plant_id: 25,
+      plant_id: 62,
+      companion_plant_id: 12,
       compatibility_type: 'good',
-      notes: 'Chives may help reduce apple scab.',
+      notes: 'Beans climb corn and improve nitrogen availability.',
     },
     {
-      plant_id: 21,
-      companion_plant_id: 26,
+      plant_id: 62,
+      companion_plant_id: 19,
       compatibility_type: 'good',
-      notes: 'Coriander attracts pollinators.',
+      notes: 'Cucumbers benefit from corn providing shelter.',
     },
 
-    // Blueberries
+    // Celery (58)
+    {
+      plant_id: 58,
+      companion_plant_id: 23,
+      compatibility_type: 'good',
+      notes: 'Basil attracts beneficial insects nearby.',
+    },
+
+    // Herbs
+    {
+      plant_id: 23,
+      companion_plant_id: 17,
+      compatibility_type: 'good',
+      notes: 'Tomatoes and basil are classic companions.',
+    },
+    {
+      plant_id: 29,
+      companion_plant_id: 17,
+      compatibility_type: 'good',
+      notes: 'Sage can help deter some pests.',
+    },
+
+    // Fruit Trees
+    {
+      plant_id: 21,
+      companion_plant_id: 68,
+      compatibility_type: 'good',
+      notes: 'Nasturtium attracts beneficial insects around fruit trees.',
+    },
+    {
+      plant_id: 32,
+      companion_plant_id: 66,
+      compatibility_type: 'good',
+      notes: 'Lavender attracts pollinators.',
+    },
+
+    // Blueberries (24)
     {
       plant_id: 24,
       companion_plant_id: 30,
       compatibility_type: 'good',
-      notes: 'Both enjoy acidic soil conditions.',
+      notes: 'Both prefer similar acidic growing conditions.',
     },
 
-    // Lemon
+    // Flowers
     {
-      plant_id: 34,
-      companion_plant_id: 33,
+      plant_id: 68,
+      companion_plant_id: 17,
       compatibility_type: 'good',
-      notes: 'Garlic may deter pests around citrus trees.',
-    },
-
-    // Orange
-    {
-      plant_id: 35,
-      companion_plant_id: 33,
-      compatibility_type: 'good',
-      notes: 'Garlic may help repel pests.',
-    },
-
-    // Watermelon
-    {
-      plant_id: 31,
-      companion_plant_id: 12,
-      compatibility_type: 'good',
-      notes: 'Beans help improve nitrogen in the soil.',
+      notes: 'Nasturtium helps attract pollinators and deter pests.',
     },
     {
-      plant_id: 31,
-      companion_plant_id: 19,
+      plant_id: 70,
+      companion_plant_id: 62,
       compatibility_type: 'good',
-      notes: 'Cucumbers and melons have similar growing conditions.',
+      notes: 'Borage attracts bees and improves pollination.',
     },
 
     // Mint
@@ -277,13 +258,13 @@ export async function seed(knex) {
       plant_id: 27,
       companion_plant_id: 6,
       compatibility_type: 'good',
-      notes: 'Mint may help deter cabbage moths.',
+      notes: 'Mint may deter cabbage moths.',
     },
     {
       plant_id: 27,
       companion_plant_id: 17,
       compatibility_type: 'avoid',
-      notes: 'Mint spreads aggressively and may overwhelm tomatoes.',
+      notes: 'Mint spreads aggressively and may overwhelm plants.',
     },
   ])
 }

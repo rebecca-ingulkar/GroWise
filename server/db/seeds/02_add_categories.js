@@ -1,61 +1,139 @@
 export async function seed(knex) {
   // Vegetables
-  await knex('vegetables').where('name', 'Potatoes').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Onions').update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Pumpkin / Squash')
-    .update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Broccoli').update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Cauliflower')
-    .update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Cabbage').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Lettuce').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Spinach').update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Silverbeet / Swiss Chard')
-    .update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Kale').update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Peas (Garden / Snap)')
-    .update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Beans (Green / Broad)')
-    .update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Carrots').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Beetroot').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Parsnips').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Kumara').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Tomatoes').update({ category_id: 1 })
-  await knex('vegetables')
-    .where('name', 'Capsicum / Bell Peppers')
-    .update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Cucumbers').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Turnips').update({ category_id: 1 })
-  await knex('vegetables').where('name', 'Garlic').update({ category_id: 1 })
+  const vegetables = [
+    'Potatoes',
+    'Onions',
+    'Pumpkin',
+    'Broccoli',
+    'Cauliflower',
+    'Cabbage',
+    'Lettuce',
+    'Spinach',
+    'Silverbeet / Swiss Chard',
+    'Kale',
+    'Garden Peas',
+    'Green Beans',
+    'Carrots',
+    'Beetroot',
+    'Parsnips',
+    'Kumara',
+    'Tomatoes',
+    'Capsicum',
+    'Cucumbers',
+    'Turnips',
+    'Butternut Squash',
+    'Courgette (Zucchini)',
+    'Snow Peas',
+    'Sugar Snap Peas',
+    'Runner Beans',
+    'Broad Beans',
+    'Chilli Pepper',
+    'Eggplant',
+    'Celery',
+    'Spring Onion',
+    'Radish',
+    'Brussels Sprouts',
+    'Sweetcorn',
+    'Fennel',
+    'New Zealand Spinach',
+    'Pūhā',
+  ]
+
+  for (const name of vegetables) {
+    await knex('vegetables').where('name', name).update({ category_id: 1 })
+  }
 
   // Herbs
-  await knex('vegetables').where('name', 'Basil').update({ category_id: 2 })
-  await knex('vegetables').where('name', 'Chives').update({ category_id: 2 })
-  await knex('vegetables').where('name', 'Coriander').update({ category_id: 2 })
-  await knex('vegetables').where('name', 'Mint').update({ category_id: 2 })
-  await knex('vegetables').where('name', 'Parsley').update({ category_id: 2 })
-  await knex('vegetables').where('name', 'Sage').update({ category_id: 2 })
+  const herbs = [
+    'Basil',
+    'Chives',
+    'Coriander',
+    'Mint',
+    'Parsley',
+    'Sage',
+    'Garlic',
+    'Thyme',
+    'Rosemary',
+    'Oregano',
+    'Dill',
+    'Bay Laurel',
+    'Thai Basil',
+    'Kawakawa',
+    'Horopito',
+  ]
 
-  // Fruit
-  await knex('vegetables').where('name', 'Blueberry').update({ category_id: 3 })
-  await knex('vegetables')
-    .where('name', 'Strawberry')
-    .update({ category_id: 3 })
-  await knex('vegetables')
-    .where('name', 'Watermelon')
-    .update({ category_id: 3 })
+  for (const name of herbs) {
+    await knex('vegetables').where('name', name).update({ category_id: 2 })
+  }
 
-  // Trees
-  await knex('vegetables').where('name', 'Apples').update({ category_id: 4 })
-  await knex('vegetables').where('name', 'Avocado').update({ category_id: 4 })
-  await knex('vegetables').where('name', 'Feijoa').update({ category_id: 4 })
-  await knex('vegetables').where('name', 'Lemon').update({ category_id: 4 })
-  await knex('vegetables').where('name', 'Orange').update({ category_id: 4 })
-  await knex('vegetables').where('name', 'Peaches').update({ category_id: 4 })
+  // Fruit (berry/vining/fruiting plants)
+  const fruits = [
+    'Blueberry',
+    'Strawberry',
+    'Watermelon',
+    'Raspberry',
+    'Blackberry',
+    'Boysenberry',
+    'Cranberry',
+    'Chilean Guava',
+    'Passionfruit',
+    'Tamarillo',
+  ]
+
+  for (const name of fruits) {
+    await knex('vegetables').where('name', name).update({ category_id: 3 })
+  }
+
+  // Fruit Trees
+  const fruitTrees = [
+    'Apples',
+    'Avocado',
+    'Feijoa',
+    'Lemon',
+    'Orange',
+    'Peaches',
+    'Pear',
+    'Plum',
+    'Nectarine',
+    'Mandarin',
+    'Lime',
+    'Fig',
+    'Olive',
+    'Persimmon',
+    'Apricot',
+    'Grapes',
+    'Kiwifruit',
+  ]
+
+  for (const name of fruitTrees) {
+    await knex('vegetables').where('name', name).update({ category_id: 4 })
+  }
+
+  // Nut Trees
+  const nutTrees = ['Hazelnut', 'Walnut', 'Almond']
+
+  for (const name of nutTrees) {
+    await knex('vegetables').where('name', name).update({ category_id: 6 })
+  }
+
+  // Decorative / flowers
+  const decorative = [
+    'Lavender',
+    'Chamomile',
+    'Nasturtium',
+    'Calendula',
+    'Borage',
+    'Viola',
+  ]
+
+  for (const name of decorative) {
+    await knex('vegetables').where('name', name).update({ category_id: 5 })
+  }
+
+  // Native Trees / NZ natives
+  const nativeTrees = ['Kawakawa', 'Horopito']
+
+  for (const name of nativeTrees) {
+    await knex('vegetables').where('name', name).update({ category_id: 7 })
+  }
 }
