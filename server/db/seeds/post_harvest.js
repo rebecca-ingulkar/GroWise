@@ -77,7 +77,7 @@ export async function seed(knex) {
       recipe_ideas: 'Spinach pesto, smoothies, spinach soup.',
     },
 
-    // Silverbeet / Swiss Chard
+    // Silverbeet
     {
       id: 9,
       vege_id: 9,
@@ -95,7 +95,7 @@ export async function seed(knex) {
       recipe_ideas: 'Kale chips, smoothies, kale pesto.',
     },
 
-    // Peas
+    // Garden Peas
     {
       id: 11,
       vege_id: 11,
@@ -159,12 +159,13 @@ export async function seed(knex) {
       recipe_ideas: 'Tomato paste, roasted tomato sauce, salsa, chutney.',
     },
 
-    // Bell Peppers / Capsicum
+    // Capsicum
     {
       id: 18,
       vege_id: 18,
       preservation: 'Freeze sliced or roasted, pickle, or dry for powder.',
-      recipe_ideas: 'Stuffed peppers, pepper relish, roasted pepper sauce.',
+      recipe_ideas:
+        'Stuffed capsicum, capsicum relish, roasted capsicum sauce.',
     },
 
     // Cucumbers
@@ -339,6 +340,465 @@ export async function seed(knex) {
         'Freeze slices, make peach jam or compote, or dry for long-term storage.',
       recipe_ideas:
         'Peach crumble, smoothies, peach jam, pies, roasted peaches, salads.',
+    },
+    // Butternut Squash
+    {
+      id: 37,
+      vege_id: 37,
+      preservation:
+        'Cure whole squash for 7–10 days and store in a cool dry place for several months. Freeze cubes or puree for soups and baking.',
+      recipe_ideas:
+        'Butternut soup, roasted squash, squash curry, mash, risotto, pasta sauces.',
+    },
+
+    // Courgette (Zucchini)
+    {
+      id: 38,
+      vege_id: 38,
+      preservation:
+        'Grate and freeze, pickle young courgettes, dehydrate slices, or make relish for longer storage.',
+      recipe_ideas:
+        'Zucchini fritters, zucchini bread, ratatouille, pasta dishes, grilled vegetables.',
+    },
+
+    // Snow Peas
+    {
+      id: 39,
+      vege_id: 39,
+      preservation:
+        'Blanch and freeze pods, or store fresh in the refrigerator for up to one week.',
+      recipe_ideas: 'Stir-fries, salads, noodle dishes, vegetable mixes.',
+    },
+
+    // Sugar Snap Peas
+    {
+      id: 40,
+      vege_id: 40,
+      preservation:
+        'Blanch and freeze whole pods, or preserve in vegetable freezer mixes.',
+      recipe_ideas: 'Fresh snacks, stir-fries, salads, pasta dishes.',
+    },
+
+    // Runner Beans
+    {
+      id: 41,
+      vege_id: 41,
+      preservation:
+        'Slice and blanch before freezing, pickle young beans, or preserve in jars.',
+      recipe_ideas: 'Bean salads, casseroles, stir-fries, baked beans.',
+    },
+
+    // Broad Beans
+    {
+      id: 42,
+      vege_id: 42,
+      preservation:
+        'Shell and freeze beans after blanching. Can also be dried for long-term storage.',
+      recipe_ideas: 'Broad bean dip, soups, stews, salads, pasta dishes.',
+    },
+
+    // Chilli Pepper
+    {
+      id: 43,
+      vege_id: 43,
+      preservation:
+        'Dry whole chillies, freeze fresh chillies, pickle, or make chilli sauces.',
+      recipe_ideas: 'Hot sauce, chilli jam, curries, salsa, spicy marinades.',
+    },
+
+    // Raspberry
+    {
+      id: 44,
+      vege_id: 44,
+      preservation:
+        'Freeze berries, make jam, puree and freeze, or dehydrate for snacks.',
+      recipe_ideas: 'Smoothies, desserts, muffins, jam, sauces.',
+    },
+
+    // Blackberry
+    {
+      id: 45,
+      vege_id: 45,
+      preservation:
+        'Freeze berries, make preserves, jams, sauces, or dehydrate.',
+      recipe_ideas: 'Blackberry crumble, jam, smoothies, desserts.',
+    },
+
+    // Boysenberry
+    {
+      id: 46,
+      vege_id: 46,
+      preservation:
+        'Freeze fresh berries, make jam, sauces, syrups, or preserves.',
+      recipe_ideas: 'Boysenberry desserts, smoothies, pies, sauces.',
+    },
+
+    // Pear
+    {
+      id: 47,
+      vege_id: 47,
+      preservation:
+        'Bottle pears in syrup, freeze slices, dry fruit, or make pear jam.',
+      recipe_ideas: 'Pear crumble, poached pears, preserves, cakes.',
+    },
+
+    // Plum
+    {
+      id: 48,
+      vege_id: 48,
+      preservation: 'Freeze, bottle, dry, or preserve into jams and sauces.',
+      recipe_ideas: 'Plum jam, chutney, desserts, sauces.',
+    },
+
+    // Nectarine
+    {
+      id: 49,
+      vege_id: 49,
+      preservation:
+        'Freeze slices, bottle in syrup, dry fruit, or make preserves.',
+      recipe_ideas: 'Nectarine crumble, jams, fruit salads, desserts.',
+    },
+
+    // Mandarin
+    {
+      id: 50,
+      vege_id: 50,
+      preservation:
+        'Freeze segments, preserve in syrup, make marmalade, or dry peel for flavouring.',
+      recipe_ideas: 'Fruit salads, cakes, marmalade, smoothies.',
+    },
+
+    // Lime
+    {
+      id: 51,
+      vege_id: 51,
+      preservation:
+        'Freeze juice and zest, preserve in salt, or make lime syrup.',
+      recipe_ideas: 'Lime drinks, desserts, marinades, sauces.',
+    },
+
+    // Passionfruit
+    {
+      id: 52,
+      vege_id: 52,
+      preservation: 'Freeze pulp, make syrup, curd, sauces, or preserves.',
+      recipe_ideas:
+        'Passionfruit cheesecake, drinks, desserts, yoghurt toppings.',
+    },
+
+    // Thyme
+    {
+      id: 53,
+      vege_id: 53,
+      preservation: 'Dry leaves or freeze sprigs in oil or butter.',
+      recipe_ideas: 'Roasts, soups, herb butter, marinades.',
+    },
+
+    // Rosemary
+    {
+      id: 54,
+      vege_id: 54,
+      preservation: 'Dry sprigs, freeze leaves, or preserve in oil.',
+      recipe_ideas: 'Roasted vegetables, bread, marinades, herb salts.',
+    },
+
+    // Oregano
+    {
+      id: 55,
+      vege_id: 55,
+      preservation: 'Dry leaves for seasoning or freeze fresh leaves.',
+      recipe_ideas: 'Pizza, pasta sauces, Mediterranean dishes.',
+    },
+
+    // Dill
+    {
+      id: 56,
+      vege_id: 56,
+      preservation: 'Dry leaves, freeze chopped dill, or preserve in vinegar.',
+      recipe_ideas: 'Pickles, seafood dishes, sauces, salads.',
+    },
+
+    // Eggplant
+    {
+      id: 57,
+      vege_id: 57,
+      preservation:
+        'Freeze cooked slices, pickle, roast and freeze, or preserve as dips.',
+      recipe_ideas: 'Baba ganoush, curries, ratatouille, grilled eggplant.',
+    },
+
+    // Celery
+    {
+      id: 58,
+      vege_id: 58,
+      preservation:
+        'Chop and freeze, dehydrate leaves, or preserve in soups and stocks.',
+      recipe_ideas: 'Soups, stocks, salads, stir-fries.',
+    },
+
+    // Spring Onion
+    {
+      id: 59,
+      vege_id: 59,
+      preservation: 'Slice and freeze, pickle, or dry greens for seasoning.',
+      recipe_ideas: 'Asian dishes, salads, garnishes, omelettes.',
+    },
+
+    // Radish
+    {
+      id: 60,
+      vege_id: 60,
+      preservation:
+        'Pickle slices, ferment, or store fresh roots in the refrigerator.',
+      recipe_ideas: 'Salads, pickles, sandwiches, roasted radish.',
+    },
+
+    // Brussels Sprouts
+    {
+      id: 61,
+      vege_id: 61,
+      preservation: 'Blanch and freeze sprouts for long-term storage.',
+      recipe_ideas: 'Roasted sprouts, gratins, stir-fries.',
+    },
+
+    // Sweetcorn
+    {
+      id: 62,
+      vege_id: 62,
+      preservation:
+        'Freeze kernels after blanching, preserve in jars, or dry kernels.',
+      recipe_ideas: 'Corn fritters, soups, salsa, corn chowder.',
+    },
+
+    // Fennel
+    {
+      id: 63,
+      vege_id: 63,
+      preservation:
+        'Pickle bulbs, dry seeds, or freeze chopped pieces for cooking.',
+      recipe_ideas: 'Roasted fennel, salads, soups, seafood dishes.',
+    },
+    // Bay Laurel
+    {
+      id: 64,
+      vege_id: 64,
+      preservation:
+        'Dry leaves thoroughly and store in an airtight container away from light.',
+      recipe_ideas:
+        'Soups, stews, curries, sauces, marinades, slow-cooked dishes.',
+    },
+
+    // Thai Basil
+    {
+      id: 65,
+      vege_id: 65,
+      preservation:
+        'Freeze leaves whole or chopped, make pesto, or dry leaves for seasoning.',
+      recipe_ideas: 'Thai curries, stir-fries, noodle dishes, salads, sauces.',
+    },
+
+    // Lavender
+    {
+      id: 66,
+      vege_id: 66,
+      preservation:
+        'Dry flower heads and store in an airtight container. Can also preserve in sugar or syrup.',
+      recipe_ideas:
+        'Lavender baking, teas, infused honey, desserts, herbal blends.',
+    },
+
+    // Chamomile
+    {
+      id: 67,
+      vege_id: 67,
+      preservation:
+        'Dry flowers completely and store in an airtight container for tea.',
+      recipe_ideas:
+        'Chamomile tea, herbal blends, infused syrups, baked goods.',
+    },
+
+    // Nasturtium
+    {
+      id: 68,
+      vege_id: 68,
+      preservation:
+        'Use flowers fresh, pickle young seed pods as a caper substitute, or freeze flowers in ice cubes.',
+      recipe_ideas: 'Salads, garnishes, pesto, edible flower decorations.',
+    },
+
+    // Calendula
+    {
+      id: 69,
+      vege_id: 69,
+      preservation:
+        'Dry petals for teas, baking, and natural colouring. Store dried petals away from moisture.',
+      recipe_ideas: 'Herbal tea, salads, baking, infused oils.',
+    },
+
+    // Borage
+    {
+      id: 70,
+      vege_id: 70,
+      preservation:
+        'Freeze flowers in ice cubes or dry young leaves for herbal use.',
+      recipe_ideas: 'Salads, drinks, garnishes, herbal teas.',
+    },
+
+    // Viola
+    {
+      id: 71,
+      vege_id: 71,
+      preservation:
+        'Crystallise flowers with sugar or freeze petals for decorative use.',
+      recipe_ideas: 'Cake decoration, salads, desserts, cocktails.',
+    },
+
+    // Cranberry
+    {
+      id: 72,
+      vege_id: 72,
+      preservation:
+        'Freeze berries, dry them, or make sauces, jams and preserves.',
+      recipe_ideas: 'Cranberry sauce, muffins, baking, smoothies.',
+    },
+
+    // Fig
+    {
+      id: 73,
+      vege_id: 73,
+      preservation:
+        'Dry figs, freeze, bottle in syrup, or make jams and preserves.',
+      recipe_ideas: 'Fig jam, desserts, cheese platters, baking.',
+    },
+
+    // Olive
+    {
+      id: 74,
+      vege_id: 74,
+      preservation:
+        'Cure fresh olives in brine, dry cure, or press for olive oil.',
+      recipe_ideas:
+        'Olive oil, tapenade, salads, breads, Mediterranean dishes.',
+    },
+
+    // Persimmon
+    {
+      id: 75,
+      vege_id: 75,
+      preservation:
+        'Dry slices, freeze pulp, make jams, or preserve as fruit leather.',
+      recipe_ideas: 'Persimmon desserts, smoothies, baking, fruit salads.',
+    },
+
+    // Apricot
+    {
+      id: 76,
+      vege_id: 76,
+      preservation: 'Dry, freeze, bottle in syrup, or make jams and chutneys.',
+      recipe_ideas: 'Apricot jam, crumble, baking, sauces.',
+    },
+
+    // Grapes
+    {
+      id: 77,
+      vege_id: 77,
+      preservation:
+        'Dry into raisins, freeze, make juice, or preserve as jelly.',
+      recipe_ideas: 'Fresh snacks, grape juice, raisins, jams, desserts.',
+    },
+
+    // Kiwifruit
+    {
+      id: 78,
+      vege_id: 78,
+      preservation:
+        'Freeze slices, puree and freeze, or make jams and fruit sauces.',
+      recipe_ideas: 'Smoothies, fruit salads, desserts, jams.',
+    },
+
+    // Hazelnut
+    {
+      id: 79,
+      vege_id: 79,
+      preservation:
+        'Dry harvested nuts thoroughly and store in airtight containers. Freeze kernels for longer storage.',
+      recipe_ideas: 'Nut butter, baking, granola, pesto, roasted nuts.',
+    },
+
+    // Walnut
+    {
+      id: 80,
+      vege_id: 80,
+      preservation:
+        'Dry nuts after harvest and store shelled or unshelled in a cool place. Freeze kernels for extended storage.',
+      recipe_ideas: 'Walnut bread, pesto, baking, salads, nut mixes.',
+    },
+
+    // Almond
+    {
+      id: 81,
+      vege_id: 81,
+      preservation:
+        'Dry nuts thoroughly and store in airtight containers. Freeze almonds to maintain freshness.',
+      recipe_ideas:
+        'Almond milk, baking, granola, roasted almonds, nut butter.',
+    },
+
+    // Kawakawa
+    {
+      id: 82,
+      vege_id: 82,
+      preservation:
+        'Dry leaves for tea, store dried leaves in airtight containers, or freeze fresh leaves.',
+      recipe_ideas:
+        'Kawakawa tea, infused oils, traditional herbal preparations.',
+    },
+
+    // Horopito
+    {
+      id: 83,
+      vege_id: 83,
+      preservation:
+        'Dry leaves and store as a seasoning, similar to dried herbs.',
+      recipe_ideas: 'Seasoning blends, sauces, marinades, herbal teas.',
+    },
+
+    // New Zealand Spinach
+    {
+      id: 84,
+      vege_id: 84,
+      preservation:
+        'Blanch and freeze leaves, or cook and freeze portions for later use.',
+      recipe_ideas: 'Spinach pies, stir-fries, soups, pasta dishes.',
+    },
+
+    // Pūhā
+    {
+      id: 85,
+      vege_id: 85,
+      preservation:
+        'Use fresh, blanch and freeze leaves, or cook and freeze portions.',
+      recipe_ideas:
+        'Traditional Māori dishes, soups, stir-fries, cooked greens.',
+    },
+
+    // Tamarillo
+    {
+      id: 86,
+      vege_id: 86,
+      preservation:
+        'Freeze pulp, make sauces, chutneys, jams, or preserve in jars.',
+      recipe_ideas:
+        'Tamarillo chutney, sauces, desserts, jams, breakfast toppings.',
+    },
+
+    // Chilean Guava
+    {
+      id: 87,
+      vege_id: 87,
+      preservation:
+        'Freeze berries, make jams, sauces, or preserve as fruit syrup.',
+      recipe_ideas: 'Jams, desserts, muffins, fruit sauces, smoothies.',
     },
   ])
 }
