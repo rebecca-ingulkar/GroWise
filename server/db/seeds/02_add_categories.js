@@ -75,7 +75,6 @@ export async function seed(knex) {
     'Blackberry',
     'Boysenberry',
     'Cranberry',
-    'Chilean Guava',
     'Passionfruit',
     'Tamarillo',
   ]
