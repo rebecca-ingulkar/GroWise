@@ -11,10 +11,12 @@ What started off as a group end of year project soon became a passion project an
 
 ### Recent Updates
 - region list shows in alphabetical order
-
-### Coming soon
 - ability to save plant to garden
 - plants in garden to sync between devices
+
+### Coming soon
+- addition of more plants, decorative plants included
+- recipe links to another section of site
 
 ---
 ### Currently growing 
