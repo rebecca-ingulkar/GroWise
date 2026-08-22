@@ -55,20 +55,42 @@ router.patch(
   checkJwt,
   async (req: JwtRequest<UserProfileUpdate>, res) => {
     const auth0Id = req.auth?.sub
-    const { display_name, region_id } = req.body
 
     if (!auth0Id) {
       return res.status(401).json({ error: 'Unauthorized' })
     }
+    const { display_name, region_id } = req.body
+    try {
+      const updatedCount = await db('users')
+        .where({ auth0_id: auth0Id })
+        .update({ display_name, region_id })
+      if (updatedCount === 0) {
+        return res.status(404).json({ error: 'User not found' })
+      }
+      const updated = await db('users')
+        .leftJoin('region', 'users.region_id', 'region.id')
+        .select(
+          'users.id',
+          'users.auth0_id',
+          'users.display_name',
+          'users.region_id',
+          'region.name as region_name',
+        )
+        .where('users.auth0_id', auth0Id)
+        .first()
+      return res.json(updated)
+    } catch (error) {
+      console.log('Failed to update user profile:', error)
+      return res.status(500).json({ error: 'Failed to update user profile' })
+    }
+    // await db('users').where({ auth0_id: auth0Id }).update({
+    //   display_name,
+    //   region_id,
+    // })
 
-    await db('users').where({ auth0_id: auth0Id }).update({
-      display_name,
-      region_id,
-    })
+    // const updated = await db('users').where({ auth0_id: auth0Id }).first()
 
-    const updated = await db('users').where({ auth0_id: auth0Id }).first()
-
-    return res.json(updated)
+    // return res.json(updated)
   },
 )
 

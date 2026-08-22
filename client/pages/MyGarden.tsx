@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router'
 
 import ThemedH1 from '../components/theme/ThemedHeader'
 import ThemedText from '../components/theme/ThemedText'
 import FadeImg from '../components/theme/FadeImg'
-
+import { useUserGarden, useRemoveFromGarden } from '../hooks/useUserGarden'
 interface Plant {
   id: number
   name: string
@@ -15,12 +14,39 @@ interface Plant {
 
 export default function MyGarden() {
   const navigate = useNavigate()
-  const [plants, setPlants] = useState<Plant[]>([])
+  //
+  const { data: plants = [], isLoading, isError } = useUserGarden()
 
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem('myGarden') || '[]')
-    setPlants(saved)
-  }, [])
+  // const [plants, setPlants] = useState<Plant[]>([])
+  const removeFromGarden = useRemoveFromGarden()
+
+  async function handlesRemove(plantId: number) {
+    try {
+      await removeFromGarden.mutateAsync(plantId)
+    } catch (err) {
+      console.error('Failed to remove plant:', err)
+    }
+  }
+  if (isLoading) {
+    return (
+      <main>
+        <ThemedH1 className="mb-4 text-left">My Garden.</ThemedH1>
+        <p>Loading your garden...</p>
+      </main>
+    )
+  }
+  if (isError) {
+    return (
+      <main>
+        <ThemedH1 className="mb-4 text-left">My Garden.</ThemedH1>
+        <p>Unable to load your garden. Please try again.</p>
+      </main>
+    )
+  }
+  // useEffect(() => {
+  //   const saved = JSON.parse(localStorage.getItem('myGarden') || '[]')
+  //   setPlants(saved)
+  // }, [])
 
   return (
     <main>
@@ -102,8 +128,14 @@ export default function MyGarden() {
                   Click to learn more →
                 </Link>
               </div>
-
               <button
+                onClick={() => handlesRemove(plant.id)}
+                disabled={removeFromGarden.isPending}
+                className="m-6 rounded-[40px] bg-[#e3ead4] px-6 py-1.5 text-[clamp(14px,3vw,16px)] font-semibold text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
+              >
+                {removeFromGarden.isPending ? 'Removing...' : 'Remove'}
+              </button>
+              {/* <button
                 onClick={() => {
                   const updated = plants.filter((p) => p.id !== plant.id)
                   setPlants(updated)
@@ -112,7 +144,7 @@ export default function MyGarden() {
                 className="m-6 rounded-[40px] bg-[#e3ead4] px-6 py-1.5 text-[clamp(14px,3vw,16px)] font-semibold text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
               >
                 Remove
-              </button>
+              </button> */}
             </article>
           ))}
         </div>
