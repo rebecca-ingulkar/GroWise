@@ -42,22 +42,19 @@ export default function PlantGuide() {
   const { data: recipes = [] } = useRecipe(Number(id))
 
   async function handleAddToGarden() {
-    console.log('Click add button')
+    console.log('Click add to garden button')
     if (!plant) return
     try {
       const result = await addToGarden.mutateAsync(plant.id)
       console.log('Added successfully:', result)
       navigate('/my-garden')
     } catch (err) {
-      console.log('Add failed:', err)
+      console.log('Add to garden failed:', err)
     }
   }
-
-  if (isLoading)
-    return <p className="mt-24 text-center">Loading planting guide...</p>
-  if (isError || !plant)
-    return <p className="mt-24 text-center">Guide not found.</p>
-
+  // ========
+  // LOCAL STORAGE
+  // ========
   // const handleAddToGarden = () => {
   //   const existing = JSON.parse(localStorage.getItem('myGarden') || '[]')
   //   const alreadyAdded = existing.some((p: PlantData) => p.id === plant.id)
@@ -69,6 +66,11 @@ export default function PlantGuide() {
 
   //   navigate('/my-garden')
   // }
+
+  if (isLoading)
+    return <p className="mt-24 text-center">Loading planting guide...</p>
+  if (isError || !plant)
+    return <p className="mt-24 text-center">Guide not found.</p>
 
   return (
     <main>
