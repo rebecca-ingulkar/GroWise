@@ -19,6 +19,8 @@ export async function up(knex) {
     table.float('yield_per_plant_max')
     table.string('storage')
     table.string('image')
+    table.string('image2')
+    table.string('image3')
   })
 }
 
