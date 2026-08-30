@@ -6,6 +6,7 @@ export async function up(knex) {
     table.increments('id').primary()
     table.string('title').notNullable()
     table.string('description')
+    table.string('serves')
     table.string('notes')
     table.string('image')
   })
