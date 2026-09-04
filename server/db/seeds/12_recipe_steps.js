@@ -118,6 +118,90 @@ exports.seed = async function (knex) {
         'Serve with an extra drizzle of Coconut Cream or Olive Oil and freshly toasted bread',
     },
       {
+      id: 17,
+      recipe_id: '3',
+      step_number: '1',
+      instruction:
+        'In a pan, cook the bacon until crispy. Allow to cool on a paper towel and crumble into pieces. Set aside.',
+    },
+      {
+      id: 18,
+      recipe_id: '3',
+      step_number: '2',
+      instruction:
+        'In a small bowl, whisk together Mayonnaise, Vinegar, Sugar or Honey, Salt and Pepper ',
+    },
+      {
+      id: 19 ,
+      recipe_id: '3',
+      step_number: '3',
+      instruction:
+        'In a large bowl, combine raw Broccoli, Bacon, Raisins, and Red Onion (if using). Add in optional extras if using (pumpkin seeds, sunflower seeds etc). Pour over dressing and toss until everything is evenly coated.',
+    },
+     {
+      id: 20,
+      recipe_id: '3',
+      step_number: '4',
+      instruction:
+        'Refrigerate for at least 30 minutes before serving to allow the flavours to develop.',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+     {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+     {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+      {
+      id: ,
+      recipe_id: '',
+      step_number: '',
+      instruction:
+        '',
+    },
+     {
       id: ,
       recipe_id: '',
       step_number: '',
