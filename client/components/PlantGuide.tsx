@@ -88,7 +88,15 @@ export default function PlantGuide() {
       >
         {/* Button returns user to Plant Page (not current being used) */}
         <button
-          onClick={() => navigate(-1)}
+          // onClick={() => navigate(-1)}
+          onClick={() =>
+            navigate('/plants', {
+              state: {
+                regionName,
+                month,
+              },
+            })
+          }
           className="gap-4
       rounded-[40px]
       bg-[#e8e6e1]
@@ -289,6 +297,9 @@ export default function PlantGuide() {
           </div>
         </CardContent>
       </Card>
+      {/* -------------- */}
+      {/*     RECIPES    */}
+      {/* -------------- */}
       <Card className="mb-8 overflow-hidden rounded-lg border-0 bg-[#f5f1ed] shadow-none">
         <CardContent className="p-8">
           <h2 className="mb-6 text-2xl font-semibold">
@@ -303,6 +314,11 @@ export default function PlantGuide() {
                 <Link
                   key={recipe.id}
                   to={`/recipes/${recipe.id}`}
+                  state={{
+                    fromPlantId: plant.id,
+                    regionName,
+                    month,
+                  }}
                   className="rounded-lg border bg-white p-4 transition hover:shadow-md"
                 >
                   <h3 className="text-lg font-semibold">{recipe.title}</h3>

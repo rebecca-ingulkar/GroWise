@@ -10,6 +10,7 @@ import MyProfile from './components/MyProfile'
 import EditProfile from './components/EditProfilePage'
 import ManageMyGarden from './pages/ManageMyGarden.tsx'
 import RecipeDetail from './components/RecipeDetail.tsx'
+import About from './components/About.tsx'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -23,5 +24,6 @@ export default createRoutesFromElements(
     <Route path="profile/edit" element={<EditProfile />} />
     <Route path="manage-my-garden" element={<ManageMyGarden />} />
     <Route path="recipes/:id" element={<RecipeDetail />} />
+    <Route path="about" element={<About />} />
   </Route>,
 )

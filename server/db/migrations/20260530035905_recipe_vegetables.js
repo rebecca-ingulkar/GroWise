@@ -3,9 +3,23 @@
  */
 export async function up(knex) {
   return knex.schema.createTable('recipe_vegetables', (table) => {
-    table.increments('id')
-    table.integer('recipe_id')
-    table.integer('vegetable_id')
+    table.integer('id').primary()
+    table
+      .integer('recipe_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('recipes')
+      .onDelete('CASCADE')
+
+    table
+      .integer('vegetable_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('vegetables')
+      .onDelete('CASCADE')
+    table.unique(['recipe_id', 'vegetable_id'])
   })
 }
 

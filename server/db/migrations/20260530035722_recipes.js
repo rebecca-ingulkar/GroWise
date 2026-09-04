@@ -3,11 +3,10 @@
  */
 export async function up(knex) {
   return knex.schema.createTable('recipes', (table) => {
-    table.increments('id')
-    table.string('title')
+    table.increments('id').primary()
+    table.string('title').notNullable()
     table.string('description')
-    table.string('ingredients')
-    table.string('method')
+    table.string('serves')
     table.string('notes')
     table.string('image')
   })
