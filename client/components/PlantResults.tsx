@@ -3,8 +3,8 @@
 
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
-import ThemedH1 from '../components/theme/ThemedHeader'
-import ThemedText from '../components/theme/ThemedText'
+import ThemedH1 from './theme/ThemedHeader'
+import ThemedText from './theme/ThemedText'
 import { usePlants } from '../hooks/usePlants'
 import FadeImg from './theme/FadeImg'
 

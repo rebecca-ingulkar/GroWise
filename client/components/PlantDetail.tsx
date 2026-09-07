@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
-import { PlantData } from './../../models/plant'
+import { PlantData } from '../../models/plant'
 import { Card, CardContent } from './card'
 import { useLocation } from 'react-router'
 import { Link } from 'react-router'

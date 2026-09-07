@@ -16,22 +16,36 @@ export async function getRecipesByVegetableId(id: number) {
 
 //Shows recipe information on Recipe Detail component
 export async function getRecipeById(id: number) {
-  const recipe = await.db('recipes').where({id}).select('id','title', 'description', 'image', 'notes').first()
+  const recipe = await db('recipes')
+    .where({ id })
+    .select('id', 'title', 'description', 'image', 'notes')
+    .first()
   if (!recipe) {
     return null
   }
-  const ingredients = await db('recipe_ingredients').where({recipe_id: id}).select('id', 'quantity', 'unit', 'ingredient', 'preparation','display_order as displayOrder').orderBy('display_order')
-  const steps = await db('recipe_steps').where({recipe_id: id}).select('id', 'step_number as stepNumber', 'instruction',).orderBy('step_number')
+  const ingredients = await db('recipe_ingredients')
+    .where({ recipe_id: id })
+    .select(
+      'id',
+      'quantity',
+      'unit',
+      'ingredient',
+      'preparation',
+      'display_order as displayOrder',
+    )
+    .orderBy('display_order')
+  const steps = await db('recipe_steps')
+    .where({ recipe_id: id })
+    .select('id', 'step_number as stepNumber', 'instruction')
+    .orderBy('step_number')
   const vegetables = await getVegetablesByRecipeId(id)
 
   return {
-    ...recipe, 
-    ingredients, 
-    steps, 
+    ...recipe,
+    ingredients,
+    steps,
     vegetables,
   }
-  
-  
 }
 
 export async function getVegetablesByRecipeId(recipeId: number) {

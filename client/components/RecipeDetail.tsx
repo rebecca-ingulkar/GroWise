@@ -1,27 +1,26 @@
 // Recipe information page, linking back to vegetables
 // with ability to add recipe to cookbook (favorites)
 
-import { useLocation, useNavigate, useParams } from 'react-router'
+import { Link, useLocation, useNavigate, useParams } from 'react-router'
 import ThemedH1 from './theme/ThemedHeader'
 import ThemedText from './theme/ThemedText'
-import { Recipe } from './../../models/recipe'
-// import { PlantData } from './../../models/plant'
-import { Link } from 'react-router'
 import { Card, CardContent } from './card'
 import { useRecipeById } from '../hooks/useRecipe'
 import Button from './theme/Button'
 
 export default function RecipeDetail() {
   const { id } = useParams()
-  // const vegetableId = Number(id)
-  const { data: recipe, isPending, error } = useRecipeById(Number(id))
-  // const recipe = recipes?.[0]
+  const recipeId = Number(id)
+
+  const { data: recipe, isPending, error } = useRecipeById(recipeId)
+
   const location = useLocation()
   const navigate = useNavigate()
 
   const fromPlantId = location.state?.fromPlantId
   const regionName = location.state?.regionName
   const month = location.state?.month
+
   if (isPending) {
     return <p>Loading recipe...</p>
   }
@@ -35,8 +34,16 @@ export default function RecipeDetail() {
 
   return (
     <Card className="p-6">
-      <CardContent>
+      <CardContent className="space-y-6">
         <ThemedH1>{recipe.title}</ThemedH1>
+
+        {recipe.image && (
+          <img
+            src={recipe.image}
+            alt={recipe.title}
+            className="max-h-[450px] w-full rounded-[20px] object-cover"
+          />
+        )}
         <ThemedText>{recipe.description}</ThemedText>
         <ThemedH1>Ingredients</ThemedH1>
         <ThemedText>{recipe.ingredients}</ThemedText>

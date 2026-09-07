@@ -19,14 +19,16 @@ export async function seed(knex) {
       serves: '6',
       notes:
         'Optional: add chilli flakes for an extra kick / drizzle extra coconut cream or olive oil over your bowl of hot soup.Add ½–1 teaspoon of curry powder, ground cumin, smoked paprika or ground nutmeg for additional flavour. For a thinner soup, add another 100–250 ml of water. Store covered in the refrigerator for up to three days, or freeze for up to three months.',
-      image: './recipes/pumpkinsoup.webp',
+      image: '/recipes/pumpkinsoup.webp',
     },
     {
       id: 3,
       title: 'Broccoli Salad',
-      description: "A crunchy, sweet, and savory salad that's perfect for BBQs, lunches, or as a side dish.",
+      description:
+        "A crunchy, sweet, and savory salad that's perfect for BBQs, lunches, or as a side dish.",
       serves: '4-6',
-      notes: 'Tip: The salad is often even better the next day after the raisins soften slightly and the flavors meld together. 🍴',
+      notes:
+        'Tip: The salad is often even better the next day after the raisins soften slightly and the flavors meld together. 🍴',
       image: '',
     },
     {
