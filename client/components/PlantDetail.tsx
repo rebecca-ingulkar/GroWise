@@ -12,7 +12,7 @@ import FadeImg from './theme/FadeImg'
 import { useState } from 'react'
 import PlantCalculatorModal from './PlantCalculatorModal'
 import CompanionPlants from './Companion'
-import { useRecipe } from '../hooks/useRecipe'
+import { useRecipeByVegetableId } from '../hooks/useRecipe'
 import { useAddToGarden } from '../hooks/useUserGarden'
 
 export default function PlantGuide() {
@@ -39,7 +39,11 @@ export default function PlantGuide() {
       return res.json()
     },
   })
-  const { data: recipes = [] } = useRecipe(Number(id))
+  const {
+    data: recipes = [],
+    isPending: recipesPending,
+    error: recipesError,
+  } = useRecipeByVegetableId(Number(id))
 
   async function handleAddToGarden() {
     console.log('Click add to garden button')
@@ -306,7 +310,11 @@ export default function PlantGuide() {
             Recipes using {plant.name}
           </h2>
 
-          {!recipes || recipes.length === 0 ? (
+          {recipesPending ? (
+            <p>Loading recipes...</p>
+          ) : recipesError ? (
+            <p>Unable to load recipes.</p>
+          ) : recipes.length === 0 ? (
             <p>No recipes available yet.</p>
           ) : (
             <div className="grid gap-4 md:grid-cols-2">

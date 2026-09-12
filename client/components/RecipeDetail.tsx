@@ -71,7 +71,7 @@ export default function RecipeDetail() {
         {recipe.notes && (
           <section>
             <ThemedH1>Notes</ThemedH1>
-            <ThemedText>{recipe.notes}</ThemedText>
+            <p>{recipe.notes}</p>
           </section>
         )}
 
