@@ -124,7 +124,11 @@ export default function AllPlantsPage() {
 
                       <Link
                         to={`/plant/${veg.id}/guide`}
-                        state={{ regionName, month: monthFull }}
+                        state={{
+                          regionName,
+                          month: monthAbbrev,
+                          regionHardinessZone,
+                        }}
                       >
                         Click to learn more →
                       </Link>

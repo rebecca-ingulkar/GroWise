@@ -20,10 +20,15 @@ export default function PlantGuide() {
   const navigate = useNavigate()
 
   const location = useLocation()
-  const state = location.state as { regionName?: string; month?: string }
+  const state = location.state as {
+    regionName?: string
+    month?: string
+    regionHardinessZone?: string
+  }
 
-  const regionName = state?.regionName || 'your region'
-  const month = state?.month || 'this month'
+  const regionName = state?.regionName || 'Taranaki'
+  const month = state?.month || 'Nov'
+  const regionHardinessZone = state?.regionHardinessZone || '9b'
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
   const addToGarden = useAddToGarden()
 
@@ -98,6 +103,7 @@ export default function PlantGuide() {
               state: {
                 regionName,
                 month,
+                regionHardinessZone,
               },
             })
           }
