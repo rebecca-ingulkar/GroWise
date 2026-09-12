@@ -1,8 +1,4 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.seed = async function (knex) {
+export async function seed(knex) {
   // Deletes ALL existing entries
   await knex('recipe_ingredients').del()
   await knex('recipe_ingredients').insert([
@@ -79,7 +75,7 @@ exports.seed = async function (knex) {
       display_order: '8',
     },
     {
-      id: 8,
+      id: 9,
       recipe_id: '1',
       quantity: '30',
       unit: 'grams',
@@ -88,7 +84,7 @@ exports.seed = async function (knex) {
       display_order: '8',
     },
     {
-      id: 9,
+      id: 10,
       recipe_id: '1',
       quantity: '2',
       unit: 'tablespoons',
@@ -97,7 +93,7 @@ exports.seed = async function (knex) {
       display_order: '9',
     },
     {
-      id: 10,
+      id: 11,
       recipe_id: '1',
       quantity: '½',
       unit: 'teaspoon',
@@ -106,7 +102,7 @@ exports.seed = async function (knex) {
       display_order: '10',
     },
     {
-      id: 11,
+      id: 12,
       recipe_id: '1',
       quantity: 'To taste',
       unit: '',
@@ -115,7 +111,7 @@ exports.seed = async function (knex) {
       display_order: '11',
     },
     {
-      id: 12,
+      id: 13,
       recipe_id: '1',
       quantity: '1',
       unit: 'teaspoon',
@@ -123,8 +119,8 @@ exports.seed = async function (knex) {
       preparation: 'for garnishing',
       display_order: '12',
     },
-     {
-      id: 13,
+    {
+      id: 14,
       recipe_id: '2',
       quantity: '1',
       unit: 'kilogram',
@@ -132,8 +128,8 @@ exports.seed = async function (knex) {
       preparation: 'peeled and diced',
       display_order: '1',
     },
-     {
-      id: 14,
+    {
+      id: 15,
       recipe_id: '2',
       quantity: '1',
       unit: '',
@@ -141,8 +137,8 @@ exports.seed = async function (knex) {
       preparation: 'peeled and chopped',
       display_order: '2',
     },
-     {
-      id: 15,
+    {
+      id: 16,
       recipe_id: '2',
       quantity: '1',
       unit: '',
@@ -150,8 +146,8 @@ exports.seed = async function (knex) {
       preparation: 'peeled and chopped',
       display_order: '3',
     },
-     {
-      id: 16,
+    {
+      id: 17,
       recipe_id: '2',
       quantity: '1',
       unit: 'tablespoon',
@@ -159,8 +155,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '4',
     },
-     {
-      id: 17,
+    {
+      id: 18,
       recipe_id: '2',
       quantity: '1',
       unit: 'teaspoon',
@@ -168,8 +164,8 @@ exports.seed = async function (knex) {
       preparation: '(adjust to taste)',
       display_order: '5',
     },
-     {
-      id: 18,
+    {
+      id: 19,
       recipe_id: '2',
       quantity: '1',
       unit: 'teaspoon',
@@ -177,8 +173,8 @@ exports.seed = async function (knex) {
       preparation: '(Optional)',
       display_order: '7',
     },
-     {
-      id: 19,
+    {
+      id: 20,
       recipe_id: '2',
       quantity: '½',
       unit: 'teaspoon',
@@ -186,8 +182,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '6',
     },
-     {
-      id: 20,
+    {
+      id: 21,
       recipe_id: '2',
       quantity: '200',
       unit: 'mililitres',
@@ -195,8 +191,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '8',
     },
-     {
-      id: 21,
+    {
+      id: 22,
       recipe_id: '2',
       quantity: '3-4',
       unit: 'cups',
@@ -204,8 +200,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '9',
     },
-     {
-      id: 22,
+    {
+      id: 23,
       recipe_id: '3',
       quantity: '1',
       unit: 'large head',
@@ -213,8 +209,8 @@ exports.seed = async function (knex) {
       preparation: 'cut into small florets',
       display_order: '1',
     },
-        {
-      id: 23,
+    {
+      id: 24,
       recipe_id: '3',
       quantity: '6',
       unit: 'rashers',
@@ -222,8 +218,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '2',
     },
-        {
-      id: 24,
+    {
+      id: 25,
       recipe_id: '3',
       quantity: '½',
       unit: 'cup',
@@ -231,8 +227,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '3',
     },
-        {
-      id: 25,
+    {
+      id: 26,
       recipe_id: '3',
       quantity: '¼',
       unit: 'cup',
@@ -240,8 +236,8 @@ exports.seed = async function (knex) {
       preparation: 'finely diced',
       display_order: '4',
     },
-        {
-      id: 26 ,
+    {
+      id: 27,
       recipe_id: '3',
       quantity: '½',
       unit: 'cup',
@@ -249,8 +245,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '5',
     },
-        {
-      id: 27 ,
+    {
+      id: 28,
       recipe_id: '3',
       quantity: '1',
       unit: 'tablespoon',
@@ -258,8 +254,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '6',
     },
-        {
-      id: 28 ,
+    {
+      id: 29,
       recipe_id: '3',
       quantity: '1',
       unit: 'tablespoon',
@@ -267,8 +263,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '7',
     },
-        {
-      id: 29,
+    {
+      id: 30,
       recipe_id: '3',
       quantity: 'To taste',
       unit: '',
@@ -276,8 +272,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '8',
     },
-        {
-      id: 30,
+    {
+      id: 31,
       recipe_id: '3',
       quantity: 'To taste',
       unit: '',
@@ -285,8 +281,8 @@ exports.seed = async function (knex) {
       preparation: '',
       display_order: '9',
     },
-        {
-      id: ,
+    {
+      id: 32,
       recipe_id: '3',
       quantity: '¼',
       unit: 'cup',
@@ -294,8 +290,8 @@ exports.seed = async function (knex) {
       preparation: 'optional',
       display_order: '10',
     },
-       {
-      id: ,
+    {
+      id: 33,
       recipe_id: '3',
       quantity: '¼',
       unit: 'cup',
@@ -303,8 +299,8 @@ exports.seed = async function (knex) {
       preparation: 'optional',
       display_order: '11',
     },
-       {
-      id: ,
+    {
+      id: 34,
       recipe_id: '3',
       quantity: '½',
       unit: 'cup',
@@ -312,8 +308,8 @@ exports.seed = async function (knex) {
       preparation: 'grated, optional',
       display_order: '12',
     },
-       {
-      id: ,
+    {
+      id: 35,
       recipe_id: '3',
       quantity: '¼',
       unit: 'cup',
@@ -357,7 +353,7 @@ exports.seed = async function (knex) {
     //   preparation: '',
     //   display_order: '',
     // },
-     //  {
+    //  {
     //   id: ,
     //   recipe_id: '8',
     //   quantity: '',
@@ -366,7 +362,7 @@ exports.seed = async function (knex) {
     //   preparation: '',
     //   display_order: '',
     // },
-     //  {
+    //  {
     //   id: ,
     //   recipe_id: '9',
     //   quantity: '',
@@ -375,7 +371,7 @@ exports.seed = async function (knex) {
     //   preparation: '',
     //   display_order: '',
     // },
-     //  {
+    //  {
     //   id: ,
     //   recipe_id: '10',
     //   quantity: '',
@@ -384,6 +380,5 @@ exports.seed = async function (knex) {
     //   preparation: '',
     //   display_order: '',
     // },
-    
   ])
 }
