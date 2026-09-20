@@ -27,10 +27,11 @@ export default function PlantGuide() {
     fromMyGarden?: boolean
   }
 
-  const regionName = state?.regionName || 'Taranaki'
-  const month = state?.month || 'Nov'
-  const regionHardinessZone = state?.regionHardinessZone || '9b'
+  const regionName = state?.regionName
+  const month = state?.month
+  const regionHardinessZone = state?.regionHardinessZone
   const fromMyGarden = state?.fromMyGarden ?? false
+
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
   const addToGarden = useAddToGarden()
 
@@ -86,8 +87,8 @@ export default function PlantGuide() {
   return (
     <main>
       <ThemedH1 className="mb-4 text-left">
-        {fromMyGarden
-          ? `${plant.name}`
+        {fromMyGarden || !regionName || !month
+          ? plant.name
           : ` You've selected to grow ${plant.name} in ${regionName} in ${month}.`}
       </ThemedH1>
 
@@ -105,7 +106,7 @@ export default function PlantGuide() {
           onClick={() => {
             if (fromMyGarden) {
               navigate('/my-garden')
-            } else {
+            } else if (regionName && month && regionHardinessZone) {
               navigate('/plants', {
                 state: {
                   regionName,
@@ -113,6 +114,8 @@ export default function PlantGuide() {
                   regionHardinessZone,
                 },
               })
+            } else {
+              navigate('/')
             }
           }}
           className="gap-4
