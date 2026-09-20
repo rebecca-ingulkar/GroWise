@@ -43,6 +43,7 @@ export default function MyGarden() {
       </main>
     )
   }
+  console.log('we are using the MyGarden page')
   // useEffect(() => {
   //   const saved = JSON.parse(localStorage.getItem('myGarden') || '[]')
   //   setPlants(saved)

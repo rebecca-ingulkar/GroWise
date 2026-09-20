@@ -70,7 +70,7 @@ export default function AllPlantsPage() {
     (acc, plant) => {
       const category = plant.category
       plants.forEach((plant) => {
-        console.log(plant.name, plant.category)
+        // console.log(plant.name, plant.category)
       })
       if (!acc[category]) {
         acc[category] = []
