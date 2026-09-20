@@ -20,6 +20,8 @@ export default function RecipeDetail() {
   const fromPlantId = location.state?.fromPlantId
   const regionName = location.state?.regionName
   const month = location.state?.month
+  const regionHardinessZone = location.state?.regionHardinessZone
+  const fromMyGarden = location.state?.fromMyGarden ?? false
 
   if (isPending) {
     return <p>Loading recipe...</p>
@@ -84,7 +86,12 @@ export default function RecipeDetail() {
                   <Link
                     className="underline"
                     to={`/plant/${vegetable.id}/guide`}
-                    state={{ regionName, month }}
+                    state={{
+                      regionName,
+                      month,
+                      regionHardinessZone,
+                      fromMyGarden,
+                    }}
                   >
                     {vegetable.name}
                   </Link>
@@ -102,6 +109,8 @@ export default function RecipeDetail() {
                 state: {
                   regionName,
                   month,
+                  regionHardinessZone,
+                  fromMyGarden,
                 },
               })
             } else {

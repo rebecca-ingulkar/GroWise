@@ -12,7 +12,11 @@ export default function Navbar() {
   const handleMyGarden = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!isAuthenticated) {
       e.preventDefault()
-      loginWithRedirect()
+      loginWithRedirect({
+        appState: {
+          returnTo: '/my-garden',
+        },
+      })
     } else {
       navigate('/my-garden')
     }

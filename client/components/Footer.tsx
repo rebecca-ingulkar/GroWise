@@ -15,13 +15,17 @@ export default function Footer() {
             </p>
           </div>
           {/* Middle section */}
-          <div className="flex flex-col gap-3">
-            <Link to="/" className="transition-colors hover:text-[#f2a900]">
+          <div className="flex flex-col items-center gap-3 md:items-start">
+            <Link
+              to="/"
+              className="rounded-[40px] px-5 py-2 text-base font-normal text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
+            >
               Home
             </Link>
+
             <Link
               to="/about"
-              className="transition-colors hover:text-[#f2a900]"
+              className="rounded-[40px]  px-5 py-2 text-base font-normal text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
             >
               About
             </Link>
@@ -34,7 +38,7 @@ export default function Footer() {
 
             <Button
               asChild
-              className="rounded-full bg-[#e3ead4] px-6 py-3 font-semibold text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
+              className="rounded-[40px] bg-[#e3ead4] px-5 py-2 text-base font-normal text-[#2f2f2f] transition hover:bg-[#c8d3b3]"
             >
               <a
                 href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__pAXlp9UOEtQOEw4OEdPVzVWVDhaWVE3RUo4UVIwTy4u"

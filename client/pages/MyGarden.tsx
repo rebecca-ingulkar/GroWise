@@ -14,10 +14,7 @@ interface Plant {
 
 export default function MyGarden() {
   const navigate = useNavigate()
-  //
   const { data: plants = [], isLoading, isError } = useUserGarden()
-
-  // const [plants, setPlants] = useState<Plant[]>([])
   const removeFromGarden = useRemoveFromGarden()
 
   async function handlesRemove(plantId: number) {
@@ -43,6 +40,7 @@ export default function MyGarden() {
       </main>
     )
   }
+  console.log('we are using the MyGarden page')
   // useEffect(() => {
   //   const saved = JSON.parse(localStorage.getItem('myGarden') || '[]')
   //   setPlants(saved)
@@ -124,7 +122,11 @@ export default function MyGarden() {
                   <ThemedH1 className="text-x text-left">{plant.name}</ThemedH1>
                 </div>
 
-                <Link to={`/plant/${plant.id}/guide`} className="">
+                <Link
+                  to={`/plant/${plant.id}/guide`}
+                  state={{ fromMyGarden: true }}
+                  className=""
+                >
                   Click to learn more →
                 </Link>
               </div>
