@@ -343,6 +343,8 @@ export default function PlantGuide() {
                     fromPlantId: plant.id,
                     regionName,
                     month,
+                    regionHardinessZone,
+                    fromMyGarden,
                   }}
                   className="rounded-lg border bg-white p-4 transition hover:shadow-md"
                 >

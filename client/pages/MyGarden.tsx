@@ -14,10 +14,7 @@ interface Plant {
 
 export default function MyGarden() {
   const navigate = useNavigate()
-  //
   const { data: plants = [], isLoading, isError } = useUserGarden()
-
-  // const [plants, setPlants] = useState<Plant[]>([])
   const removeFromGarden = useRemoveFromGarden()
 
   async function handlesRemove(plantId: number) {
