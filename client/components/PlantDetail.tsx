@@ -24,11 +24,13 @@ export default function PlantGuide() {
     regionName?: string
     month?: string
     regionHardinessZone?: string
+    fromMyGarden?: boolean
   }
 
   const regionName = state?.regionName || 'Taranaki'
   const month = state?.month || 'Nov'
   const regionHardinessZone = state?.regionHardinessZone || '9b'
+  const fromMyGarden = state?.fromMyGarden ?? false
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false)
   const addToGarden = useAddToGarden()
 
@@ -84,7 +86,9 @@ export default function PlantGuide() {
   return (
     <main>
       <ThemedH1 className="mb-4 text-left">
-        You&apos;ve selected to grow {plant.name} in {regionName} in {month}.
+        {fromMyGarden
+          ? `${plant.name}`
+          : ` You've selected to grow ${plant.name} in ${regionName} in ${month}.`}
       </ThemedH1>
 
       <ThemedText className="mb-10 text-left">
@@ -98,15 +102,19 @@ export default function PlantGuide() {
         {/* Button returns user to Plant Page (not current being used) */}
         <button
           // onClick={() => navigate(-1)}
-          onClick={() =>
-            navigate('/plants', {
-              state: {
-                regionName,
-                month,
-                regionHardinessZone,
-              },
-            })
-          }
+          onClick={() => {
+            if (fromMyGarden) {
+              navigate('/my-garden')
+            } else {
+              navigate('/plants', {
+                state: {
+                  regionName,
+                  month,
+                  regionHardinessZone,
+                },
+              })
+            }
+          }}
           className="gap-4
       rounded-[40px]
       bg-[#e8e6e1]
@@ -118,7 +126,7 @@ export default function PlantGuide() {
       text-[#2f2f2f]
       transition hover:bg-[#dcd8ce]"
         >
-          ← Back to List
+          {fromMyGarden ? '← Back to My Garden' : '← Back to List'}
         </button>
 
         <button
